@@ -7,6 +7,8 @@
 //! against a hand-labeled response fixture.
 //! See `docs/PREREGISTRATION.md` for the full plan.
 
+pub mod http;
+
 use rand::SeedableRng;
 use rand_pcg::Pcg64Mcg;
 use serde::{Deserialize, Serialize};

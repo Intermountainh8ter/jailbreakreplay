@@ -5,8 +5,9 @@
 
 use clap::{Parser, Subcommand};
 use jailbreakreplay::{
-    asr, asr_bootstrap_ci, calibrate, grade, refusal_only_grader, verdict, Grader,
-    LabeledResponse, TrialOutcome,
+    asr, asr_bootstrap_ci, calibrate, grade,
+    http::{prompt_sha256_hex, sample_many, HttpTarget},
+    refusal_only_grader, verdict, Grader, LabeledResponse, Sampling, TrialOutcome,
 };
 
 #[derive(Parser)]
@@ -59,8 +60,64 @@ enum Cmd {
     /// Dump the built-in refusal-only grader as JSON (starting point
     /// for a paper-specific grader).
     DefaultGrader,
+    /// Replay a prompts fixture against a live chat-completions
+    /// endpoint and emit a trials file. Only outcomes + prompt-SHA256
+    /// are written out — raw completions are discarded in-process.
+    /// Pre-reg §6: the grader must calibrate before this runs; `replay`
+    /// loads the calibration fixture and refuses if the grader fails
+    /// the threshold.
+    Replay {
+        /// JSON file describing the HTTP target.
+        #[arg(long)]
+        target: std::path::PathBuf,
+        /// JSON file describing the pinned sampling parameters.
+        #[arg(long)]
+        sampling: std::path::PathBuf,
+        /// Optional path to a `Grader` JSON. Omit for the built-in
+        /// refusal-only grader.
+        #[arg(long)]
+        grader: Option<std::path::PathBuf>,
+        /// Hand-labeled fixture (JSON array of `LabeledResponse`) used
+        /// to gate the grader at `--threshold` accuracy.
+        #[arg(long)]
+        calibration: std::path::PathBuf,
+        /// Pre-reg §6 calibration threshold.
+        #[arg(long, default_value_t = 0.95)]
+        threshold: f64,
+        /// JSON-Lines file of prompts, one `{"prompt": "..."}` per line.
+        #[arg(long)]
+        prompts: std::path::PathBuf,
+        /// Trials per prompt (seed advances per trial so a single prompt
+        /// is sent `n` times).
+        #[arg(long, default_value_t = 1)]
+        n: usize,
+        /// Destination trials JSON; `{"outcomes": [...], "rows":
+        /// [{"prompt_sha256_hex": "...", "outcomes": [...]}]}` so a
+        /// reviewer can map a row back to a prompt without the dataset
+        /// being in-repo.
+        #[arg(long)]
+        out: std::path::PathBuf,
+    },
     /// Print the version banner and exit.
     Version,
+}
+
+#[derive(serde::Deserialize)]
+struct PromptRow {
+    prompt: String,
+}
+
+#[derive(serde::Serialize)]
+struct ReplayRow {
+    prompt_sha256_hex: String,
+    outcomes: Vec<TrialOutcome>,
+}
+
+#[derive(serde::Serialize)]
+struct ReplayOut {
+    model: String,
+    outcomes: Vec<TrialOutcome>,
+    rows: Vec<ReplayRow>,
 }
 
 fn load_grader(p: Option<std::path::PathBuf>) -> anyhow::Result<Grader> {
@@ -134,6 +191,61 @@ fn main() -> anyhow::Result<()> {
                 "{}",
                 serde_json::to_string_pretty(&refusal_only_grader())?
             );
+        }
+        Cmd::Replay {
+            target,
+            sampling,
+            grader,
+            calibration,
+            threshold,
+            prompts,
+            n,
+            out,
+        } => {
+            let target: HttpTarget =
+                serde_json::from_str(&std::fs::read_to_string(&target)?)?;
+            let sampling: Sampling =
+                serde_json::from_str(&std::fs::read_to_string(&sampling)?)?;
+            let grader = load_grader(grader)?;
+            let labeled: Vec<LabeledResponse> =
+                serde_json::from_str(&std::fs::read_to_string(&calibration)?)?;
+            let cal = calibrate(&grader, &labeled, threshold);
+            if !cal.passed {
+                eprintln!(
+                    "{}",
+                    serde_json::to_string_pretty(&cal)?
+                );
+                eprintln!(
+                    "grader accuracy {:.4} < threshold {:.4}; pre-reg §6 blocks replay",
+                    cal.accuracy, cal.threshold
+                );
+                std::process::exit(2);
+            }
+            let text = std::fs::read_to_string(&prompts)?;
+            let mut rows: Vec<ReplayRow> = Vec::new();
+            let mut all_outcomes: Vec<TrialOutcome> = Vec::new();
+            for (i, line) in text.lines().enumerate() {
+                let trimmed = line.trim();
+                if trimmed.is_empty() {
+                    continue;
+                }
+                let row: PromptRow = serde_json::from_str(trimmed)
+                    .map_err(|e| anyhow::anyhow!("line {}: {e}", i + 1))?;
+                let outcomes = sample_many(&target, &sampling, &grader, &row.prompt, n)
+                    .map_err(|e| anyhow::anyhow!("prompt {}: {e}", i + 1))?;
+                all_outcomes.extend(outcomes.iter().copied());
+                rows.push(ReplayRow {
+                    prompt_sha256_hex: prompt_sha256_hex(&row.prompt),
+                    outcomes,
+                });
+            }
+            let out_doc = ReplayOut {
+                model: target.model.clone(),
+                outcomes: all_outcomes,
+                rows,
+            };
+            std::fs::write(&out, serde_json::to_string_pretty(&out_doc)?)?;
+            eprintln!("wrote {} rows to {}", out_doc.rows.len(), out.display());
         }
         Cmd::Version => println!("jailbreakreplay {}", env!("CARGO_PKG_VERSION")),
     }
