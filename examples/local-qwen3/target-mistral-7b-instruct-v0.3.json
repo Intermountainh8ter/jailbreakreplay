@@ -1,0 +1,6 @@
+{
+  "base_url": "http://127.0.0.1:8085/v1",
+  "model": "mistral-7b-instruct-v0.3",
+  "timeout_s": 120,
+  "max_retries": 3
+}
