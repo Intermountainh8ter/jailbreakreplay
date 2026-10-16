@@ -27,14 +27,26 @@ check methodology).
   errors from the denominator.
 - `asr_bootstrap_ci` — percentile bootstrap with a seeded Pcg64Mcg RNG.
 - `verdict(claim, ci)` returning one of four pre-registered outcomes.
-- `jailbreakreplay score` CLI.
+- `Grader` type (`refusal_patterns`, `success_patterns`, `case_sensitive`)
+  and `grade(transcript, &grader) -> TrialOutcome`: pre-reg §3's scripted
+  grader. No LLM-as-judge. Any refusal pattern match → `Fail`; all
+  success patterns present → `Success`; empty transcript → `Error`.
+- `refusal_only_grader()` built-in: 19 canonical safety-tuned refusal
+  templates, no success structure. Starting point for paper-specific
+  graders.
+- `calibrate(&grader, &labeled_fixture, threshold)` → `Calibration`:
+  pre-reg §6's self-test. A grader may not be used in a replication
+  unless it meets `threshold` (default 0.95) accuracy on hand labels.
+- CLI: `jailbreakreplay score`, `grade <transcripts.jsonl>`,
+  `calibrate <fixture.json>`, `default-grader`. `calibrate` exits 2 on
+  below-threshold accuracy so pipelines block an uncalibrated run.
 
 Not in this commit (openly tracked):
 
 - Replay drivers for PAIR, GCG, PAP.
-- Trial grader (deterministic refusal / comply / evasive classifier
-  with scripted keyword plus structure checks).
-- Fixtures per paper: exact prompts, template SHA, decoding settings.
+- Fixtures per paper: exact prompts, template SHA, decoding settings,
+  plus the paper-specific `Grader` and its hand-labeled calibration
+  responses.
 - `verify` subcommand that chains to `tokenwitness` to flag template
   drift.
 
