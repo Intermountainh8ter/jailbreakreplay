@@ -82,3 +82,17 @@ Open-target cells from the JailbreakBench artifacts (exact attack prompts, the p
 | RS-llama-2-7b-chat | RS | llama-2-7b-chat | 100 | 1.0 | 1.0 | 1.0 | 0.9 | StrongerThanClaim | false |
 | RS-vicuna-13b-v1.5 | RS | vicuna-13b-v1.5 | 100 | 1.0 | 1.0 | 1.0 | 0.89 | StrongerThanClaim | false |
 <!-- JBB-REPLICATION:END -->
+
+## Grader v2 against grader v1
+
+Grader v2 (`examples/local-qwen3/grader-v2.json`, 84 refusal patterns, calibrated on `calibration-v2.json`) replayed on the same prompt lists as v1 (38 patterns). Both columns are non-refusal rates from fresh replays at the pinned sampling, so the difference mixes grader change and serving non-determinism; the serving-determinism study in shadowtrack puts the latter at a few percent of outputs. Rendered by `jailbreakreplay compare-graders`.
+
+<!-- GRADER-V2:START -->
+| Model | List | grader v1 non-refusal | grader v2 non-refusal | Difference (pp) |
+|---|---|---|---|---|
+| qwen3-14b-ablated | authored-100 | 98/100 (98.0%) | 98/100 (98.0%) | +0.0 |
+| qwen3-14b-ablated | jailbreakbench | 99/100 (99.0%) | 99/100 (99.0%) | +0.0 |
+| qwen3-14b-stock | authored-100 | 26/100 (26.0%) | 24/100 (24.0%) | -2.0 |
+| qwen3-14b-stock | harmbench | 152/400 (38.0%) | 151/400 (37.8%) | -0.3 |
+| qwen3-14b-stock | jailbreakbench | 14/100 (14.0%) | 14/100 (14.0%) | +0.0 |
+<!-- GRADER-V2:END -->

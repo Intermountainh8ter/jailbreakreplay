@@ -99,6 +99,22 @@ enum Cmd {
         out: std::path::PathBuf,
     },
     /// Print the version banner and exit.
+    /// Compare two grader result sets on the same prompt lists: for every `<model>-<list>.json`
+    /// present in both directories, print non-refusal under each grader and the difference.
+    /// Writes a Markdown table to stdout and, with `--readme`, splices it between
+    /// `<!-- GRADER-V2:START -->` and `<!-- GRADER-V2:END -->`.
+    CompareGraders {
+        #[arg(long)]
+        a: std::path::PathBuf,
+        #[arg(long)]
+        b: std::path::PathBuf,
+        #[arg(long, default_value = "grader v1")]
+        a_label: String,
+        #[arg(long, default_value = "grader v2")]
+        b_label: String,
+        #[arg(long)]
+        readme: Option<std::path::PathBuf>,
+    },
     Version,
 }
 
@@ -130,6 +146,35 @@ fn load_grader(p: Option<std::path::PathBuf>) -> anyhow::Result<Grader> {
 #[derive(serde::Deserialize)]
 struct Trials {
     outcomes: Vec<TrialOutcome>,
+}
+
+fn non_refusal_of(path: &std::path::Path) -> anyhow::Result<(usize, usize)> {
+    let v: serde_json::Value = serde_json::from_str(&std::fs::read_to_string(path)?)?;
+    let outcomes = v["outcomes"].as_array().ok_or_else(|| anyhow::anyhow!("{}: no outcomes", path.display()))?;
+    let k = outcomes.iter().filter(|o| o.as_str() == Some("Success")).count();
+    Ok((k, outcomes.len()))
+}
+
+fn compare_graders(a: &std::path::Path, b: &std::path::Path, a_label: &str, b_label: &str, readme: Option<&std::path::Path>) -> anyhow::Result<()> {
+    let mut names: Vec<String> = std::fs::read_dir(b)?.filter_map(|e| e.ok()).map(|e| e.file_name().to_string_lossy().to_string()).filter(|n| n.ends_with(".json") && a.join(n).exists()).collect();
+    names.sort();
+    let mut t = format!("| Model | List | {a_label} non-refusal | {b_label} non-refusal | Difference (pp) |\n|---|---|---|---|---|\n");
+    for n in &names {
+        let (ka, na) = non_refusal_of(&a.join(n))?;
+        let (kb, nb) = non_refusal_of(&b.join(n))?;
+        let stem = n.trim_end_matches(".json");
+        let (model, list) = ["-jailbreakbench", "-authored-100", "-harmbench", "-advbench"].iter().find_map(|suf| stem.strip_suffix(suf).map(|m| (m.to_string(), suf.trim_start_matches('-').to_string()))).unwrap_or((stem.to_string(), String::new()));
+        let (ra, rb) = (ka as f64 / na.max(1) as f64, kb as f64 / nb.max(1) as f64);
+        t.push_str(&format!("| {model} | {list} | {ka}/{na} ({:.1}%) | {kb}/{nb} ({:.1}%) | {:+.1} |\n", ra * 100.0, rb * 100.0, (rb - ra) * 100.0));
+    }
+    print!("{t}");
+    if let Some(r) = readme {
+        const START: &str = "<!-- GRADER-V2:START -->"; const END: &str = "<!-- GRADER-V2:END -->";
+        let text = std::fs::read_to_string(r)?;
+        let (s, e) = (text.find(START).ok_or_else(|| anyhow::anyhow!("README missing {START}"))?, text.find(END).ok_or_else(|| anyhow::anyhow!("README missing {END}"))?);
+        std::fs::write(r, format!("{}{}\n{}{}", &text[..s], START, t, &text[e..]))?;
+    }
+    Ok(())
 }
 
 fn main() -> anyhow::Result<()> {
@@ -247,6 +292,7 @@ fn main() -> anyhow::Result<()> {
             std::fs::write(&out, serde_json::to_string_pretty(&out_doc)?)?;
             eprintln!("wrote {} rows to {}", out_doc.rows.len(), out.display());
         }
+        Cmd::CompareGraders { a, b, a_label, b_label, readme } => compare_graders(&a, &b, &a_label, &b_label, readme.as_deref())?,
         Cmd::Version => println!("jailbreakreplay {}", env!("CARGO_PKG_VERSION")),
     }
     Ok(())
