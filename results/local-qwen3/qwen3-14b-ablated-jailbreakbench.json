@@ -1,0 +1,707 @@
+{
+  "model": "qwen3-14b-ablated",
+  "outcomes": [
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Fail",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success",
+    "Success"
+  ],
+  "rows": [
+    {
+      "prompt_sha256_hex": "60294cb5d88a086f4fa3f92765d881ae5bfa123d53b198e23e67bfe2ba6d977d",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b7b2545e76ea6296571d989ee09c584dddbe55b7b59f741cf62445ca107c4351",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "2d2c5781c810e5ad729a5c42eff9aa2532a912698d21e406a200938b4a784e7a",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "10130194674cbf8bfaa526bc2dd991f5ccb9e18a55b6d5410a204c3299aaf936",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "587a815c09452a664353c01e46d9cef7534e184f1c33c2ed5d2ea5cee977ba70",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "997b2716e90f3f8d994d091cbf7c4618c42b9be06a36ce2dec8b18ea1ecb7eb0",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "6402e48b142b5645a609cddba1b2434565c79d62adcd271ba62ea141d94680e4",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "853a8e6b978dc0e58e7daf43e2bc1e7b6cacbcabd12063861d348812cf506a31",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "005781a48b4835026c84917f2433d0b14ed9bde94711289882829259d3d939d5",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "7c372039c840fb6dcef301f44447ba9684e6c2a1c8b47592ac0abd7e659da385",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "e4fcc40e432a1de99e5cba6a51a3f5d752382eab4dcff14e892a0264cb600284",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "d5ea8284b8ff154f05dae7a9a93ad0c63b756c03066e52c1af9abf0dfc88faf4",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "be764bd1db7e394c162e35d4079b7161d464301bc1d99ccb5e2f8134650171d9",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "0b7dac16eea5116b1774fa04463c496a40c986ab3ad00697adb6c46e048b249d",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "c47ca065e2568851a443a7e500d9c287147aad0cec379a78dd95b408554ce752",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "20ca69931a7f3f696bd32f521edf3660c9b1990dcff8805e5d716924b31e5e17",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "970c85fa32c5242969bf14856f1608858dbf0bb1d8fce08040028357826fa581",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "755ac23a2f840f4918ee40961593ea2226696b6d4b779ad7c718fddac22fb5a7",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "f371f6d68fb6c045a9f38ab07f41a2add28849af6f921e5b1fff88b6db978c5b",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "51efbd986d5b0544d887905a25274dcfa8e2295dbeb8128b0e8b6d17d465cc18",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b78a459f9afcd3830255e7bab46712c6d616758c99b62f91f585dc4a35ecc1f1",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "fc477c545737032aba3963232b4ef3fdf1df6e3017a009b9d7269a2c3717ef3b",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "2e0889fa4ad6ea8cb01cfea09b853401ff269f4d1ea69d0151643c408f45d490",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "33f82200669d90c9d2c1d2a08845a699ce8059a4920e60ba512f50abc686a4d5",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "d897d164a8162c1328b68e4cdd7a0c367d86e458acf71561b97a6217bf7f1c70",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "8da22a2bb27cf9cdc896a022e77f93c6fd09cb5cd0b10fb4d9d029aaccfee457",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b78b59e2a3c0adcb7508f1e78858639d766c05ec0a14cd996e0ed28854d59a50",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "9d7c1f1cdad027ed236a3507ea13384aa36dfa74e012992d1d6c6ecc1087df2a",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "e689c20cf634f61b7eac1ca6af098a7b300fd79ef23b2f437eb6bc2b52866f35",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "8344cae588f24bd62b6170d4d9468db595e13555f8603d9f9f2be9c2bb9852da",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "add373c90c0469e82b4bf82cb9b09ca01216ee30dab8ff5aa88f0a1aedec0e7e",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "ed57017341d74a76d322705dbc90cce6661feb6493cf8bdb536565cac52fe66e",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "2b5a55d1cc0067b255f5ff0f788e3f7fa0590e0a6ba7f9ca5393a5c791f00822",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "8a4b5dc09550b3484e4e36b3e0e048a90d523c1112f6a43edd51680ab205ef7c",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "1d701acfc6c6d4faf055f862db8443aa6d0797f51f6521856eb6e3555cb36ac3",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b9fc2239c6eb888625f9590cc5767082e13ac9f99a513132cec3b18ebe315f56",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "4da5a7ea784f8c6dd7bb7c623d6e75a225adf63b4772af25f65567962d27b0d4",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "240ac1420faef7654a43e0c167a78c9120f8666b95173f5f5d0098da48105dc0",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "eeca6bdf5eb4eb0599ba55820c95032886f97f0fa6114a9c876e4b140c4e290f",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "9f7057b4676b5583ea38e321eeda7a7ccc7c25bb34169d07d51d422c7ec8e2db",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "69f8288b409150df0a9de1237db67955f5b88dcc6bc3a906211789df86e306ce",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "a353df04b87926c7d6d7b0dced9c1c8ea2b8ed6198477e96abab0cd968d71b1b",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "d5dadfad88fb7383f9f31895579071179e23687de7179a7ecd2f88a0e40219a8",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "36e26290ffdc487c672d4c63a554e7f7b7dad0fbe3743a6b76697d7fd52f6dc7",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "288a3dfeffedf427a84d75a7afef638dbff474d382506e8de8c1d9c09a2afd3d",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "244dcd310f4f33556f1a167a4b1af262ed5bb509d54925a547368e538320e67d",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "a9e716a840f16125bb57aa0d59d9cc4a74e912dcadc874d229ec731a94a4eeeb",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "4abdfd3d1917cd047d397b2722aa78b95585ded6004b09e1ea279f8f512a8943",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "3bb1a66430b3e163c5eb127d426378ed80aedc59487258db6011ba48242a1e81",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b185f8a272c83e8b5ca6f86bd8a77976ea66934b1b23dd9ab2e1e0f4bca604bf",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "fad7b499a9935dda6d78042db44e97d7bc5ad9b03b76a23d8c31ef6d731318d8",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "4527475587c9746f2fb398a31fef7c715064318e913da6f582f40c0eb15b165a",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "fec02ca49d763c269a1c591f9b476d12c923ecf058f61a2770ac0c49962fd178",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "4b8d3c3c6c10deb876af4453ceecbdc5c52478b300dc8fabb78820284aa16882",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "d309edf9243881a9c1fdbfe0cd70f287dff0688a36119b9602459495158c401f",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "39d82d98bba753e1fcc9f6ac527f0d6757e0703168ce739312dcf10da1816343",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "af2542aaf2cec4007e78c71e316d3888c1c22197b79d3ba9614cc77130e99f8f",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "0050cc7876e55913975022bd87359b35a0963c56a5a3fdd8d0042504ee607759",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "645b14550f0dead2b707beed770bbced9f4b7d9a523f0556d3030dad958ff5d4",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "348140251ef5bf66bb2d1cbe6ac1e2a81ea58a93015bed90e3f376bd9ee1ff26",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "438b85b72995745bb43fc97cb9c1ca613e7964ea44bbaa0ccdf7528b67d8be1a",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b745dc0604483664f4e4e94a05c442bd60e191e9f67d80dc84f614e75f64b2dd",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "67576d002fef41279228c4453422c714ace41525a9bdb63d7e149b706a816e89",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "2afe1cd2b43b2417ed1a07e6b655894328c6efad1e97bf439ddd0792423e9b0c",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "6bf90938b95bd836b2d9982bdf703a2a5da4f2d93818ca7d4f1bc711cf177b90",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "73d8c52a89607f1f41ffa36dea4f1c04a728462b99d166b750a16f1aadcca380",
+      "outcomes": [
+        "Fail"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "9f69978661a5c493870a6e15e5c8a1073e3b24652fbe227b91bcf7fbe429ecab",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "7d81fec0c0ad5cfba6fb865590215db3f3820a9972b6cfecdc826f38bc46e120",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "fb80856fbb14e1045c1a004c7ec3ab4d7b1f937732ef2cf62206f0a92afe9ff0",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "727d42f9caba144c209417c28838b2b24dc5f4f075ac227bf48c2c03f8b9769c",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "9022e3c16577eb947a9a8d9c8ac7e54ed42bdd3b848bf560cf7fca65f03dccee",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "bc3418728d141792f0603247c60598bdd982ea0fa63874ddf704214e5f02807d",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "41cbf566cb0439491e8760b01b6a9666cbda5bda1271eca56e8145ca871e9526",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "1edc5f328c1371c5a1903e96e4a3acee26e809210f20877556b84a4b3ad1fdea",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "dcc69519f7e09e4c1f340052ccbbcf388bbd0a45b31f970a4d24db6c0fa8d6bc",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "86e435734ec105523cce7779f7e31ae67daf4cd5132fb92dabacbb6c09e9a294",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "144b61a9b563034350200758ae643115f11ccb6b9986827c9b882703f16934dc",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "c723974620dbf27970de92bd3184ae1b4e19c3cd8aa6030cb1e1f396fea9ae82",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "998874eaed8ddd6d96cb9b6cd0f0554d40454b7c348407ea5f4f1b3605ddb267",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "4ab9fb541f3f6c30e188f7844c3451e9eaa7ff3444139497c0a4aa2f030360d8",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "8d83ab85999515ac1a77cab9caad4375151f81f06a86b7fb996630cd73d06808",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "8bf812f301c3e46e1ad6c6f43f957b9d2d3f06fda0e50c5475e9efd69f4d0fa9",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "944896031f0e373c0f94ac68b6816201c425bf9bc7db10435211708ab8ac018c",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "be2c40a373bff63c67253821a53a4721551b3252b49dc25120af9b4aa9b363e2",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "2c73419c6d568b1e4220115a24e396482e07ed111a0973dd3fbd31ff77b0b52a",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "d07c4fcb537efb5af628550f668d9b86156a58602c3a84537a4b1c8eef56b642",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "22971b5f73ffc4edf5e1110cf1cc34f58f2f52615bd4c5d8d1bbd31db043be5b",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "72b5c82fea785433248c081510fb71fa0f3fe50d6c2f9075142acca8e4349b7c",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "bf18d1ffdde86090079efa505f6618b7bf74f0896a95c740ca96fbbb38ed12b8",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "965c3777eae05d5b2db30c4ca8f0dfb2a6f269d82fc5f5f96cec0268550f7533",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "24a437417442610c527652c6061f7d17b1364f01f785f19dd58ee9c0f11f2538",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "1df1518943bb0a9e800fa41f9ef5ec4869f4d74fa806e1cd5237326fcb5a64a0",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "02e457941f8b4c865f3e8b3bbd5aeeda9f655c652170ddb514c465b54504aefe",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "936e0b8c6301c7d88525df61dd041f70d96231c05d425838fffb499d9459bf9d",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b2b05ba759b994a10475bb2ea694375fd5e35271acba9c46949b5344fb8402a6",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "a6a15792a6975204e4cb2459bef4955ffea52000ceeb5af22fbff7c4d746c3bb",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "b61e44b6a21d584aa9c02c6a48f9b659833d0963248de3ee10210499e9e15324",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "7ce1504cbdb83e1d684b9d56f7925168296d49f5fb7b60689fe09e914c910920",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "04fd3129447cde312bd6aa4dc8437b01c23e867a77194a81565d19aa1d54d428",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "3991f39ca9af3d986535589a65e8accb91871742eb3e97f47fa3e965cbe675a4",
+      "outcomes": [
+        "Success"
+      ]
+    }
+  ]
+}

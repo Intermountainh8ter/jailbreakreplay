@@ -1,9 +1,9 @@
 {
-  "n_files": 50,
+  "n_files": 62,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/local-qwen3/INPUT-HASHES.txt": "6a8bf526d653468ed160cc80c924934f313a5d234e7943ac88f7c6c6e4038fc4",
-    "results/local-qwen3/MANIFEST.sha256.json": "24b3aab6f0caa7a5f1ad757e3b5267d94a7956be375c4d205e814c575894224c",
+    "results/local-qwen3/MANIFEST.sha256.json": "0d7086aebbc49669fe2e3677668bfc56a96dbfff9baf0214c48fc7f4c4c91509",
     "results/local-qwen3/calibration-grader-v1.json": "3df795fa314d34657f15ea8bd55626c25620e986f6b3ffa4e36128f59eda8c5e",
     "results/local-qwen3/gemma-2-9b-it-advbench.json": "be0a7cc8fff1e4826782d88d5217758b1963c1dbf1dd47f2d7e73f72bdfa48aa",
     "results/local-qwen3/gemma-2-9b-it-authored-100.json": "f5f8566f016c6a6bb415c0612d2b8307a5fc73951ff61cd069e4c86d20ebdbe4",
@@ -21,6 +21,7 @@
     "results/local-qwen3/phi-3.5-mini-instruct-authored-100.json": "bb31ab2c158de7a6136f5a39d1361969eeab649cf7bb1225788bb9a012b8bdab",
     "results/local-qwen3/phi-3.5-mini-instruct-harmbench.json": "05bb2b99bc23c095f03a0bea439c43a5eaf96cf7f36c7f5a6f9fe43c7f6e60ad",
     "results/local-qwen3/phi-3.5-mini-instruct-jailbreakbench.json": "b568d51938ccd9fdaa01ab9d7738b1f2dbd4f06deaedc532955eaf2686fe4d52",
+    "results/local-qwen3/qwen3-0.6b-ablated-advbench.json": "ad1d3817ee69a69e7f767f03331e74caac090477fa1c9f14574f8e804c7bf7c8",
     "results/local-qwen3/qwen3-0.6b-ablated-authored-100.json": "1253085d00d31e6e7960a500c8aadf47ace2fb8b08553d7404546c5d2482f99f",
     "results/local-qwen3/qwen3-0.6b-ablated-harmbench.json": "cdb59061038c17f94bb563ad4e8debab7a3ee2bc0b517c859a1eb78f4383a6ce",
     "results/local-qwen3/qwen3-0.6b-ablated-jailbreakbench.json": "ea3779c68053e4baaf6ed3b6250fb017d740616dc76b39138acee63077298240",
@@ -28,6 +29,7 @@
     "results/local-qwen3/qwen3-0.6b-stock-authored-100.json": "97c7f1cb8a5e7381de023e028b5a9737824f115d5e4b8854fceb909410d94788",
     "results/local-qwen3/qwen3-0.6b-stock-harmbench.json": "1fe35a95c538d11275c85fbff788008755227ae5f6fcb88bf445e0b249653307",
     "results/local-qwen3/qwen3-0.6b-stock-jailbreakbench.json": "393fee73b34bd050399b6111eb30477c3e8b425f60f758ba91f2d69194a7fbcf",
+    "results/local-qwen3/qwen3-1.7b-ablated-advbench.json": "20d13df4d518857c8c310930339095bba1115196e3af59e735a1b220b5be28cc",
     "results/local-qwen3/qwen3-1.7b-ablated-authored-100.json": "b76198f49ba46f7da1ecc2d484c05f8fb0d86b11efe6b3c517bdc69a41a172a0",
     "results/local-qwen3/qwen3-1.7b-ablated-harmbench.json": "f405b4ad2cdb22b3c762312d3e6f371060a4726b2c1af0dd3c2a199748dd57cf",
     "results/local-qwen3/qwen3-1.7b-ablated-jailbreakbench.json": "8366bd09ecab6d452fd33d7228f799b7905c71e0c5e1b654ff5cf46e3e1af8cf",
@@ -35,6 +37,13 @@
     "results/local-qwen3/qwen3-1.7b-stock-authored-100.json": "63f2eef6e35b46bb260c27aaf3fec8640a8362ba96bd06bf6bc297a46e2f17a7",
     "results/local-qwen3/qwen3-1.7b-stock-harmbench.json": "1da94d085e628a4ad52383c9238d31b0a15341203f019832e40fc59581387e54",
     "results/local-qwen3/qwen3-1.7b-stock-jailbreakbench.json": "a931241a8f76c268394e061c05260ae8e6ccdbeac7debebb5f0e43484c2b82a8",
+    "results/local-qwen3/qwen3-14b-ablated-authored-100.json": "365edef719b7aec7c1ca584d40adc145a003a9f84e41a73522cb3bf8ce5262dd",
+    "results/local-qwen3/qwen3-14b-ablated-harmbench.json": "72e1f9a99e6a007efa4af75eddc91bfd95bba5380a21bbfa7b723b91010f4731",
+    "results/local-qwen3/qwen3-14b-ablated-jailbreakbench.json": "f25043da71eadb307977b6283647ded215fda8b157839d6bacea79bc8d232c7a",
+    "results/local-qwen3/qwen3-14b-stock-advbench.json": "ed68b4697e48d5e8af09a49f1b723411648d03bbddfd927ed2ebc5e62651b27e",
+    "results/local-qwen3/qwen3-14b-stock-authored-100.json": "804ac523ffe4d01ca73c0aa47b2a2975ca7db81b47d6fc845d600a930ecc13a7",
+    "results/local-qwen3/qwen3-14b-stock-harmbench.json": "a173554a6f0a14b0ed9aa92a358f1898920849897098da82152d68fcc23889eb",
+    "results/local-qwen3/qwen3-14b-stock-jailbreakbench.json": "4933d8fbcdb4bf04ffe5bfdef598c1c64ff27d191bc34a9fdfd4b96793b40ea1",
     "results/local-qwen3/qwen3-4b-ablated-advbench.json": "529a325624c14a8e91c4f41ffd028afebe8097196ea9eb170da6780de9ab0701",
     "results/local-qwen3/qwen3-4b-ablated-authored-100.json": "f7945765821bce39ed306fefd520262ce379d15d4364faea19c875b4b07c8712",
     "results/local-qwen3/qwen3-4b-ablated-harmbench.json": "f67c514e1e0c10afb5bc8437a17245ab8ac66c324087878eb52b496a5b736122",
@@ -43,8 +52,11 @@
     "results/local-qwen3/qwen3-4b-stock-authored-100.json": "5db644b54940894182c4284540e86e20813db8627bf5f39329a76ede540e4fde",
     "results/local-qwen3/qwen3-4b-stock-harmbench.json": "b4a571b4f79a295a4be07c1472ce2709efae5b853fdfd43c1f34a9793b696ac0",
     "results/local-qwen3/qwen3-4b-stock-jailbreakbench.json": "0042cfbbcd2d4e1f612ff89723301c6a0cc353b4639ea9ab72595bbcd1a9289c",
+    "results/local-qwen3/qwen3-4bt-ablated-authored-100.json": "dfdbad147b8266e990cfea5fa0fd54b64624c4e8e3e1662bd0e864c6243e9dbc",
+    "results/local-qwen3/qwen3-4bt-ablated-jailbreakbench.json": "0cd474c728117f52f85b0dbb0b657048769f307d5135fb2683e8ec80e1c3b54b",
     "results/local-qwen3/qwen3-4bt-stock-authored-100.json": "8b30a605e6ce635933d5f216cad7e0d07513dfad47dad37afd6378e2b0575a2f",
     "results/local-qwen3/qwen3-4bt-stock-jailbreakbench.json": "73d2748a5b620a32594d3d91ea6ddd5239e1e245819e392b18617d0ce894ed39",
+    "results/local-qwen3/qwen3-8b-ablated-advbench.json": "6194915e257b8cb3291af6cdbe2e9382e2cfcab1a957749b1fdb3c41a69e5c48",
     "results/local-qwen3/qwen3-8b-ablated-authored-100.json": "44112aee553934f410a595ab5b6dac597db0392bf673e772a312ab5961c9be25",
     "results/local-qwen3/qwen3-8b-ablated-harmbench.json": "4d27d63c7c2b3680b66d90aae7f14c5f2d67743d5be65b65eb072530fc51f6fe",
     "results/local-qwen3/qwen3-8b-ablated-jailbreakbench.json": "0839ae2a2ed4dcaf88c268e35609d92813c718e84d0d84af1d9a0d4a8968f144",
@@ -54,5 +66,5 @@
     "results/local-qwen3/qwen3-8b-stock-jailbreakbench.json": "283daed4a42abe83a2d2edce11a00df1d914b1fe14b96c3d8db714221860f941"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792283701
+  "unix_time": 1792294886
 }
