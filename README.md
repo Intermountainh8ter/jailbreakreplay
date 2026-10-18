@@ -91,7 +91,9 @@ Grader v2 (`examples/local-qwen3/grader-v2.json`, 84 refusal patterns, calibrate
 | Model | List | grader v1 non-refusal | grader v2 non-refusal | Difference (pp) |
 |---|---|---|---|---|
 | qwen3-14b-ablated | authored-100 | 98/100 (98.0%) | 98/100 (98.0%) | +0.0 |
+| qwen3-14b-ablated | harmbench | 397/400 (99.2%) | 397/400 (99.2%) | +0.0 |
 | qwen3-14b-ablated | jailbreakbench | 99/100 (99.0%) | 99/100 (99.0%) | +0.0 |
+| qwen3-14b-stock | advbench | 38/520 (7.3%) | 33/520 (6.3%) | -1.0 |
 | qwen3-14b-stock | authored-100 | 26/100 (26.0%) | 24/100 (24.0%) | -2.0 |
 | qwen3-14b-stock | harmbench | 152/400 (38.0%) | 151/400 (37.8%) | -0.3 |
 | qwen3-14b-stock | jailbreakbench | 14/100 (14.0%) | 14/100 (14.0%) | +0.0 |
