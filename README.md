@@ -90,6 +90,12 @@ Grader v2 (`examples/local-qwen3/grader-v2.json`, 84 refusal patterns, calibrate
 <!-- GRADER-V2:START -->
 | Model | List | grader v1 non-refusal | grader v2 non-refusal | Difference (pp) |
 |---|---|---|---|---|
+| llama-3.1-8b-abliterated | authored-100 | 100/100 (100.0%) | 100/100 (100.0%) | +0.0 |
+| llama-3.1-8b-abliterated | jailbreakbench | 99/100 (99.0%) | 100/100 (100.0%) | +1.0 |
+| llama-3.1-8b-instruct | advbench | 40/520 (7.7%) | 43/520 (8.3%) | +0.6 |
+| llama-3.1-8b-instruct | authored-100 | 5/100 (5.0%) | 5/100 (5.0%) | +0.0 |
+| llama-3.1-8b-instruct | harmbench | 160/400 (40.0%) | 162/400 (40.5%) | +0.5 |
+| llama-3.1-8b-instruct | jailbreakbench | 9/100 (9.0%) | 9/100 (9.0%) | +0.0 |
 | qwen3-14b-ablated | advbench | 516/520 (99.2%) | 514/520 (98.8%) | -0.4 |
 | qwen3-14b-ablated | authored-100 | 98/100 (98.0%) | 98/100 (98.0%) | +0.0 |
 | qwen3-14b-ablated | harmbench | 397/400 (99.2%) | 397/400 (99.2%) | +0.0 |

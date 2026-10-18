@@ -1,5 +1,5 @@
 {
-  "n_files": 112,
+  "n_files": 118,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/jbb-replication/DSN-llama-2-7b-chat.json": "aeb8470f7bba5c7b6aa76076a0570e6f4b737e8f30537b03259df87832455ae4",
@@ -19,6 +19,12 @@
     "results/local-qwen3/gemma-2-9b-it-authored-100.json": "f5f8566f016c6a6bb415c0612d2b8307a5fc73951ff61cd069e4c86d20ebdbe4",
     "results/local-qwen3/gemma-2-9b-it-harmbench.json": "0e2e8f503bcfc413adef544f329833b8148e2255f4a5f7535c736572b5607a14",
     "results/local-qwen3/gemma-2-9b-it-jailbreakbench.json": "7e9cd6543610ffb3ef46ae81a465e72d3d81a63e34fe47f4160472978222c205",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-abliterated-authored-100.json": "c3ebb6ae3f25db3fd13a50e2567b2cc40b10af050a20020a79b01b90653998ef",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-abliterated-jailbreakbench.json": "78ed60b39c79f5eb88eefeba6cf09a4ba9f105941ad4e243972e8ea8c3114fcc",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-instruct-advbench.json": "b59e33ffea53213ef97a67deb18469c7d29cae48a758a8f7ddccee28f825b948",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-instruct-authored-100.json": "32952db6860fe21cdfccee4995cc4ad82d92776b4b1c7f9e50e7ad4d2cae1bac",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-instruct-harmbench.json": "e28406b6fd0441d2999f88c3bd43bc39825fa9c7303b2765ecf8c89f8108193a",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-instruct-jailbreakbench.json": "89ac6cbefc5d98558d8df70a79d1a262e40df682ddc21e973775b29e1b457a64",
     "results/local-qwen3/grader-v2/qwen3-14b-ablated-advbench.json": "ceead12444225aa229f4a92c445ee444752833445642a3510cb691f550a0f0a2",
     "results/local-qwen3/grader-v2/qwen3-14b-ablated-authored-100.json": "365edef719b7aec7c1ca584d40adc145a003a9f84e41a73522cb3bf8ce5262dd",
     "results/local-qwen3/grader-v2/qwen3-14b-ablated-harmbench.json": "72e1f9a99e6a007efa4af75eddc91bfd95bba5380a21bbfa7b723b91010f4731",
@@ -116,5 +122,5 @@
     "results/local-qwen3/zephyr-7b-beta-jailbreakbench.json": "35cbcb09d5f684001b699b2d3a97c3432109c82de56c8ce4fee8dbb235f937cd"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792337141
+  "unix_time": 1792339034
 }
