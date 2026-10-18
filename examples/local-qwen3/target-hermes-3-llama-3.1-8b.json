@@ -1,0 +1,6 @@
+{
+  "base_url": "http://127.0.0.1:8108/v1",
+  "model": "hermes-3-llama-3.1-8b",
+  "timeout_s": 120,
+  "max_retries": 3
+}

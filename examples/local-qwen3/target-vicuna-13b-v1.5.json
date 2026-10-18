@@ -1,0 +1,6 @@
+{
+  "base_url": "http://127.0.0.1:8104/v1",
+  "model": "vicuna-13b-v1.5",
+  "timeout_s": 120,
+  "max_retries": 3
+}
