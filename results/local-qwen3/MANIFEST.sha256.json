@@ -1,14 +1,22 @@
 {
-  "n_files": 63,
+  "n_files": 71,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/local-qwen3/INPUT-HASHES.txt": "6a8bf526d653468ed160cc80c924934f313a5d234e7943ac88f7c6c6e4038fc4",
-    "results/local-qwen3/MANIFEST.sha256.json": "c3400beb8070765c46fed7576a4e27b86d5a490423893fdd9706234f532ac19a",
+    "results/local-qwen3/MANIFEST.sha256.json": "8fcc159da10452401717a4a64248c4965f25ed6c4f5d61edbabf2c021abddc33",
     "results/local-qwen3/calibration-grader-v1.json": "3df795fa314d34657f15ea8bd55626c25620e986f6b3ffa4e36128f59eda8c5e",
     "results/local-qwen3/gemma-2-9b-it-advbench.json": "be0a7cc8fff1e4826782d88d5217758b1963c1dbf1dd47f2d7e73f72bdfa48aa",
     "results/local-qwen3/gemma-2-9b-it-authored-100.json": "f5f8566f016c6a6bb415c0612d2b8307a5fc73951ff61cd069e4c86d20ebdbe4",
     "results/local-qwen3/gemma-2-9b-it-harmbench.json": "0e2e8f503bcfc413adef544f329833b8148e2255f4a5f7535c736572b5607a14",
     "results/local-qwen3/gemma-2-9b-it-jailbreakbench.json": "7e9cd6543610ffb3ef46ae81a465e72d3d81a63e34fe47f4160472978222c205",
+    "results/local-qwen3/llama-3.1-8b-abliterated-advbench.json": "0801c392f762f26ce87c84fc4f3118fd59927294ca7750dc71261a62bcffc70a",
+    "results/local-qwen3/llama-3.1-8b-abliterated-authored-100.json": "c3ebb6ae3f25db3fd13a50e2567b2cc40b10af050a20020a79b01b90653998ef",
+    "results/local-qwen3/llama-3.1-8b-abliterated-harmbench.json": "a02d250f612d4a351e54036efc0246a39217b1863bfe44412636b595e1a3ba6a",
+    "results/local-qwen3/llama-3.1-8b-abliterated-jailbreakbench.json": "aa4c8eaa412b098d287858085c1743507892edfec24f2db023d6cfffdc8d846b",
+    "results/local-qwen3/llama-3.1-8b-instruct-advbench.json": "2acff4ddda485c3f09956d65ef5307d37dabd318c0e979b1c4bcaeaa3d8e6635",
+    "results/local-qwen3/llama-3.1-8b-instruct-authored-100.json": "32952db6860fe21cdfccee4995cc4ad82d92776b4b1c7f9e50e7ad4d2cae1bac",
+    "results/local-qwen3/llama-3.1-8b-instruct-harmbench.json": "421b4afadaaccd8c8cb9d4c62f0ce68c8ebe474474e7dd5c88503b8edd2f8e4e",
+    "results/local-qwen3/llama-3.1-8b-instruct-jailbreakbench.json": "89ac6cbefc5d98558d8df70a79d1a262e40df682ddc21e973775b29e1b457a64",
     "results/local-qwen3/llama-3.2-3b-instruct-advbench.json": "fe9992d7c3c4a9b83a557f85bc1705d15bff1e83cf9e6f360186474e5ede24a4",
     "results/local-qwen3/llama-3.2-3b-instruct-authored-100.json": "35e23c70c4d57c0141ba5431f15a02d386efc71c928d4c00e3150e14cfa3986f",
     "results/local-qwen3/llama-3.2-3b-instruct-harmbench.json": "fe79877d63352e18fdec184d0352dbc04e7c99794ea3c6e07dbac7238ad0b03d",
@@ -67,5 +75,5 @@
     "results/local-qwen3/qwen3-8b-stock-jailbreakbench.json": "283daed4a42abe83a2d2edce11a00df1d914b1fe14b96c3d8db714221860f941"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792298075
+  "unix_time": 1792304686
 }
