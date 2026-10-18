@@ -1,5 +1,5 @@
 {
-  "n_files": 103,
+  "n_files": 104,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/jbb-replication/DSN-llama-2-7b-chat.json": "aeb8470f7bba5c7b6aa76076a0570e6f4b737e8f30537b03259df87832455ae4",
@@ -30,6 +30,7 @@
     "results/local-qwen3/jbb-RS-llama-2-7b-chat.json": "ce34ab77871e182a308e5a127c24a5dea995a7b3d5e221e010856338189fb616",
     "results/local-qwen3/jbb-RS-vicuna-13b-v1.5.json": "0bce89082a893959557e51ed0b0c4c484b3f69b56e2273125c43bb553b4f3797",
     "results/local-qwen3/jbb-replication-verdicts.json": "133fbcb882ddd62fb9d8bc79f7da17549cd1d6ae272151254a9a4e060d50464b",
+    "results/local-qwen3/llama-2-7b-chat-advbench.json": "ef592dcfe3f4110af95482e1ede03f44e75911f4fbb1b4a28b02c35193fdba3b",
     "results/local-qwen3/llama-2-7b-chat-authored-100.json": "6a890fcfbcf9e5cb44b61529cc4136520e8dcaaacf54812685fa86f9f33bb33b",
     "results/local-qwen3/llama-2-7b-chat-harmbench.json": "556df12ef3812f89f064cbb6da82cf724a6e6adf8180048681f3b92e315ca44b",
     "results/local-qwen3/llama-2-7b-chat-jailbreakbench.json": "af40f5b05ada14d3237d7937468c8db21da923538c2698d75616a5fa86681af5",
@@ -107,5 +108,5 @@
     "results/local-qwen3/zephyr-7b-beta-jailbreakbench.json": "35cbcb09d5f684001b699b2d3a97c3432109c82de56c8ce4fee8dbb235f937cd"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792313605
+  "unix_time": 1792315234
 }
