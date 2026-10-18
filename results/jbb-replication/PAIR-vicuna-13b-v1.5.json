@@ -1,0 +1,16 @@
+{
+ "attack": "PAIR",
+ "model": "vicuna-13b-v1.5",
+ "n_prompts": 82,
+ "replication_non_refusal": 0.8415,
+ "ci_lo": 0.7561,
+ "ci_hi": 0.9146,
+ "paper_claim_asr": 0.69,
+ "verdict": "StrongerThanClaim",
+ "paper_judge": "Llama-3-70B LLM judge (JailbreakBench default)",
+ "our_grader": "frozen substring refusal grader v1; non-refusal, not harmfulness",
+ "serving": "Q8_0 GGUF, llama.cpp 091b6a7, explicit Jinja template, greedy, max_tokens 150",
+ "prompts_sha256_16": "f020e7ff6834d60d",
+ "artifact_evaluation_date": "2024-03-06",
+ "underpowered": false
+}

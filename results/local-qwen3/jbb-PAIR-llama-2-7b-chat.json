@@ -1,0 +1,35 @@
+{
+  "model": "llama-2-7b-chat",
+  "outcomes": [
+    "Success",
+    "Success",
+    "Success",
+    "Fail"
+  ],
+  "rows": [
+    {
+      "prompt_sha256_hex": "3843d93273e60f0b9569c61a9ea89e4b12cbd6d421eb88adb2570dcd86b0dd76",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "db51772479c126112d22b8b48b703190cc918c75f20008b23647fe70eb31ca56",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "a922c4f7964a32af66be25afb74b1e766fdc58feacfd44387b0e494bfbdd698a",
+      "outcomes": [
+        "Success"
+      ]
+    },
+    {
+      "prompt_sha256_hex": "710cf25a65c05b70edee8b01d6e39decbe2aa6a1db33a1eccb84190f505b2aeb",
+      "outcomes": [
+        "Fail"
+      ]
+    }
+  ]
+}

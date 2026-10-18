@@ -63,3 +63,20 @@ jailbreakreplay score trials.json --claim 0.9 --boot 2000
 ## License
 
 MIT. See `LICENSE`.
+
+## JailbreakBench replication, live
+
+Open-target cells from the JailbreakBench artifacts (exact attack prompts, the paper's own greedy 150-token sampling), replayed on Q8_0 GGUFs through llama.cpp and graded by the frozen substring grader v1. Our number is non-refusal; the paper's is an LLM judge's harmfulness call. Rendered from `results/jbb-replication/*.json` by bench-report.
+
+<!-- JBB-REPLICATION:START -->
+| file | attack | model | n_prompts | replication_non_refusal | ci_lo | ci_hi | paper_claim_asr | verdict | underpowered |
+|---|---|---|---|---|---|---|---|---|---|
+| DSN-llama-2-7b-chat | DSN | llama-2-7b-chat | 100 | 0.25 | 0.17 | 0.34 | 0.94 | NarrowedBelowClaim | false |
+| DSN-vicuna-13b-v1.5 | DSN | vicuna-13b-v1.5 | 100 | 0.64 | 0.55 | 0.73 | 0.95 | NarrowedBelowClaim | false |
+| GCG-llama-2-7b-chat | GCG | llama-2-7b-chat | 100 | 0.17 | 0.1 | 0.24 | 0.03 | StrongerThanClaim | false |
+| GCG-vicuna-13b-v1.5 | GCG | vicuna-13b-v1.5 | 100 | 0.83 | 0.75 | 0.9 | 0.8 | Reproduced | false |
+| JailbreakChat-llama-2-7b-chat | JailbreakChat | llama-2-7b-chat | 100 | 0.0 | 0.0 | 0.0 | 0.0 | Reproduced | false |
+| JailbreakChat-vicuna-13b-v1.5 | JailbreakChat | vicuna-13b-v1.5 | 100 | 0.98 | 0.95 | 1.0 | 0.9 | StrongerThanClaim | false |
+| PAIR-llama-2-7b-chat | PAIR | llama-2-7b-chat | 4 | 0.75 | 0.25 | 1.0 | 0.0 | StrongerThanClaim | true |
+| PAIR-vicuna-13b-v1.5 | PAIR | vicuna-13b-v1.5 | 82 | 0.8415 | 0.7561 | 0.9146 | 0.69 | StrongerThanClaim | false |
+<!-- JBB-REPLICATION:END -->
