@@ -79,4 +79,6 @@ Open-target cells from the JailbreakBench artifacts (exact attack prompts, the p
 | JailbreakChat-vicuna-13b-v1.5 | JailbreakChat | vicuna-13b-v1.5 | 100 | 0.98 | 0.95 | 1.0 | 0.9 | StrongerThanClaim | false |
 | PAIR-llama-2-7b-chat | PAIR | llama-2-7b-chat | 4 | 0.75 | 0.25 | 1.0 | 0.0 | StrongerThanClaim | true |
 | PAIR-vicuna-13b-v1.5 | PAIR | vicuna-13b-v1.5 | 82 | 0.8415 | 0.7561 | 0.9146 | 0.69 | StrongerThanClaim | false |
+| RS-llama-2-7b-chat | RS | llama-2-7b-chat | 100 | 1.0 | 1.0 | 1.0 | 0.9 | StrongerThanClaim | false |
+| RS-vicuna-13b-v1.5 | RS | vicuna-13b-v1.5 | 100 | 1.0 | 1.0 | 1.0 | 0.89 | StrongerThanClaim | false |
 <!-- JBB-REPLICATION:END -->

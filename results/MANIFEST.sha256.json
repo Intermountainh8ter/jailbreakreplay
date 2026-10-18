@@ -1,5 +1,5 @@
 {
-  "n_files": 90,
+  "n_files": 98,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/jbb-replication/DSN-llama-2-7b-chat.json": "aeb8470f7bba5c7b6aa76076a0570e6f4b737e8f30537b03259df87832455ae4",
@@ -10,6 +10,8 @@
     "results/jbb-replication/JailbreakChat-vicuna-13b-v1.5.json": "0fc35c706ae687d79b4d6957744e8d8bbe3e74b3e0018724abe7b111142a9c53",
     "results/jbb-replication/PAIR-llama-2-7b-chat.json": "6c752a676ef5b31fdfb5f468f8828c2d3a0773c2a48ad241746c5f47a402ce24",
     "results/jbb-replication/PAIR-vicuna-13b-v1.5.json": "18f269011106ec4b9ec208a9a8faa25cb2d5d7febd815ef9fd64bea8423c4eb7",
+    "results/jbb-replication/RS-llama-2-7b-chat.json": "e6929dbec5f36fe6e9a5a3928890bf753876c71b16e595c3cb110fd76e538e1a",
+    "results/jbb-replication/RS-vicuna-13b-v1.5.json": "c4fc0171cb9186e89710c0fcdeea37666c720711dc8ef8f9bff3fc6481c41f77",
     "results/local-qwen3/INPUT-HASHES.txt": "6a8bf526d653468ed160cc80c924934f313a5d234e7943ac88f7c6c6e4038fc4",
     "results/local-qwen3/MANIFEST.sha256.json": "21e6a6fe367cfd19bbff54fd055622cb0bbcef50e2ef6b033ac9f76b46ed1d5f",
     "results/local-qwen3/calibration-grader-v1.json": "3df795fa314d34657f15ea8bd55626c25620e986f6b3ffa4e36128f59eda8c5e",
@@ -25,7 +27,11 @@
     "results/local-qwen3/jbb-JailbreakChat-vicuna-13b-v1.5.json": "f4e1a7ec1293aa646b31cb1c7d2c64a36c882ae7fbeabffd972885c43eb27a18",
     "results/local-qwen3/jbb-PAIR-llama-2-7b-chat.json": "a3c021892834862d2a6b540b0cbb686346fbbb5705e3f1cc8b2d69058bbff7bc",
     "results/local-qwen3/jbb-PAIR-vicuna-13b-v1.5.json": "b96200dbb827e51906ac791d7ccb11419c9162f5a6dcd9fa07560bde99079bf6",
-    "results/local-qwen3/jbb-replication-verdicts.json": "b7127e842ee4f001735a6c5dfcad71876fcb1aea0b7c8e9483805280f58bd698",
+    "results/local-qwen3/jbb-RS-llama-2-7b-chat.json": "ce34ab77871e182a308e5a127c24a5dea995a7b3d5e221e010856338189fb616",
+    "results/local-qwen3/jbb-RS-vicuna-13b-v1.5.json": "0bce89082a893959557e51ed0b0c4c484b3f69b56e2273125c43bb553b4f3797",
+    "results/local-qwen3/jbb-replication-verdicts.json": "133fbcb882ddd62fb9d8bc79f7da17549cd1d6ae272151254a9a4e060d50464b",
+    "results/local-qwen3/llama-2-7b-chat-authored-100.json": "6a890fcfbcf9e5cb44b61529cc4136520e8dcaaacf54812685fa86f9f33bb33b",
+    "results/local-qwen3/llama-2-7b-chat-jailbreakbench.json": "af40f5b05ada14d3237d7937468c8db21da923538c2698d75616a5fa86681af5",
     "results/local-qwen3/llama-3.1-8b-abliterated-advbench.json": "0801c392f762f26ce87c84fc4f3118fd59927294ca7750dc71261a62bcffc70a",
     "results/local-qwen3/llama-3.1-8b-abliterated-authored-100.json": "c3ebb6ae3f25db3fd13a50e2567b2cc40b10af050a20020a79b01b90653998ef",
     "results/local-qwen3/llama-3.1-8b-abliterated-harmbench.json": "a02d250f612d4a351e54036efc0246a39217b1863bfe44412636b595e1a3ba6a",
@@ -90,9 +96,11 @@
     "results/local-qwen3/qwen3-8b-stock-authored-100.json": "5ac72191fda686465a0ac3680bd2139502277ce0f0781642739ff18ee66dfee2",
     "results/local-qwen3/qwen3-8b-stock-harmbench.json": "313a28e62832e93925b2f5fd6fdd02c7ab8675c345c00e25186c27616e4b2e47",
     "results/local-qwen3/qwen3-8b-stock-jailbreakbench.json": "283daed4a42abe83a2d2edce11a00df1d914b1fe14b96c3d8db714221860f941",
+    "results/local-qwen3/vicuna-13b-v1.5-authored-100.json": "79c9984032fad53387fc20fbbd6577462310151fa592e0c37a7870776dbed89b",
+    "results/local-qwen3/vicuna-13b-v1.5-jailbreakbench.json": "2067bf66c8cbff7f86a272fc7234c649e7ae77f4a9394dfd62d335d6c3d17405",
     "results/local-qwen3/zephyr-7b-beta-authored-100.json": "eb209f5a945ea72e59d9f216cf585b12013993ba915eaa48e6f716a816f4029c",
     "results/local-qwen3/zephyr-7b-beta-jailbreakbench.json": "35cbcb09d5f684001b699b2d3a97c3432109c82de56c8ce4fee8dbb235f937cd"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792306822
+  "unix_time": 1792308758
 }
