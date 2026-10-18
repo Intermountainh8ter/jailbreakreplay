@@ -1,5 +1,5 @@
 {
-  "n_files": 98,
+  "n_files": 101,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/jbb-replication/DSN-llama-2-7b-chat.json": "aeb8470f7bba5c7b6aa76076a0570e6f4b737e8f30537b03259df87832455ae4",
@@ -96,11 +96,14 @@
     "results/local-qwen3/qwen3-8b-stock-authored-100.json": "5ac72191fda686465a0ac3680bd2139502277ce0f0781642739ff18ee66dfee2",
     "results/local-qwen3/qwen3-8b-stock-harmbench.json": "313a28e62832e93925b2f5fd6fdd02c7ab8675c345c00e25186c27616e4b2e47",
     "results/local-qwen3/qwen3-8b-stock-jailbreakbench.json": "283daed4a42abe83a2d2edce11a00df1d914b1fe14b96c3d8db714221860f941",
+    "results/local-qwen3/vicuna-13b-v1.5-advbench.json": "f7cd95810a9a0ada87863bceec7012169acb5ff6a054c45cef34835487460142",
     "results/local-qwen3/vicuna-13b-v1.5-authored-100.json": "79c9984032fad53387fc20fbbd6577462310151fa592e0c37a7870776dbed89b",
+    "results/local-qwen3/vicuna-13b-v1.5-harmbench.json": "36ff93d8608037983fb1563c3c54d2a7cebea078b8ebe5095b9d1ff197de0b93",
     "results/local-qwen3/vicuna-13b-v1.5-jailbreakbench.json": "2067bf66c8cbff7f86a272fc7234c649e7ae77f4a9394dfd62d335d6c3d17405",
     "results/local-qwen3/zephyr-7b-beta-authored-100.json": "eb209f5a945ea72e59d9f216cf585b12013993ba915eaa48e6f716a816f4029c",
+    "results/local-qwen3/zephyr-7b-beta-harmbench.json": "350158a8704cb64cb462417a58110b2ebef6177a5312258c96d2af19133b0edc",
     "results/local-qwen3/zephyr-7b-beta-jailbreakbench.json": "35cbcb09d5f684001b699b2d3a97c3432109c82de56c8ce4fee8dbb235f937cd"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792308758
+  "unix_time": 1792311205
 }
