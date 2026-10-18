@@ -1,5 +1,5 @@
 {
-  "n_files": 118,
+  "n_files": 120,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
     "results/jbb-replication/DSN-llama-2-7b-chat.json": "aeb8470f7bba5c7b6aa76076a0570e6f4b737e8f30537b03259df87832455ae4",
@@ -19,7 +19,9 @@
     "results/local-qwen3/gemma-2-9b-it-authored-100.json": "f5f8566f016c6a6bb415c0612d2b8307a5fc73951ff61cd069e4c86d20ebdbe4",
     "results/local-qwen3/gemma-2-9b-it-harmbench.json": "0e2e8f503bcfc413adef544f329833b8148e2255f4a5f7535c736572b5607a14",
     "results/local-qwen3/gemma-2-9b-it-jailbreakbench.json": "7e9cd6543610ffb3ef46ae81a465e72d3d81a63e34fe47f4160472978222c205",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-abliterated-advbench.json": "3ca1a0508c4d831b84582cc58eed7877a2b3febb2385c5a28706f1d2a7af2dc9",
     "results/local-qwen3/grader-v2/llama-3.1-8b-abliterated-authored-100.json": "c3ebb6ae3f25db3fd13a50e2567b2cc40b10af050a20020a79b01b90653998ef",
+    "results/local-qwen3/grader-v2/llama-3.1-8b-abliterated-harmbench.json": "9b16ec4b78d313848ce69e2bcd23d891e9edca45350e018f4d2ee38b218c2565",
     "results/local-qwen3/grader-v2/llama-3.1-8b-abliterated-jailbreakbench.json": "78ed60b39c79f5eb88eefeba6cf09a4ba9f105941ad4e243972e8ea8c3114fcc",
     "results/local-qwen3/grader-v2/llama-3.1-8b-instruct-advbench.json": "b59e33ffea53213ef97a67deb18469c7d29cae48a758a8f7ddccee28f825b948",
     "results/local-qwen3/grader-v2/llama-3.1-8b-instruct-authored-100.json": "32952db6860fe21cdfccee4995cc4ad82d92776b4b1c7f9e50e7ad4d2cae1bac",
@@ -122,5 +124,5 @@
     "results/local-qwen3/zephyr-7b-beta-jailbreakbench.json": "35cbcb09d5f684001b699b2d3a97c3432109c82de56c8ce4fee8dbb235f937cd"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792339034
+  "unix_time": 1792343370
 }
