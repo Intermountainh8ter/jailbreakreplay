@@ -7,6 +7,7 @@
 //! against a hand-labeled response fixture.
 //! See `docs/PREREGISTRATION.md` for the full plan.
 
+pub mod agreement;
 pub mod http;
 
 use rand::SeedableRng;

@@ -23,6 +23,32 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Cmd {
+    /// Grader-agreement study (docs/STUDY-grader-agreement.md): v1, v2 and a Llama Guard classifier on the same stored completions.
+    GraderAgreement {
+        #[arg(long)]
+        prompts: std::path::PathBuf,
+        /// Transcript JSONL files, one per cell, in the order to report.
+        #[arg(long, num_args = 1..)]
+        transcripts: Vec<std::path::PathBuf>,
+        #[arg(long)]
+        grader_v1: std::path::PathBuf,
+        #[arg(long)]
+        grader_v2: std::path::PathBuf,
+        #[arg(long)]
+        classifier_url: String,
+        #[arg(long)]
+        classifier_model: String,
+        #[arg(long)]
+        classifier_sha256: Option<String>,
+        #[arg(long, default_value_t = 2000)]
+        bootstrap: usize,
+        #[arg(long, default_value_t = 42)]
+        seed: u64,
+        #[arg(long)]
+        out: std::path::PathBuf,
+        #[arg(long)]
+        readme: Option<std::path::PathBuf>,
+    },
     /// Score a trials JSON file against a paper's claimed ASR.
     Score {
         trials: std::path::PathBuf,
@@ -180,6 +206,19 @@ fn compare_graders(a: &std::path::Path, b: &std::path::Path, a_label: &str, b_la
 fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
     match cli.command {
+        Cmd::GraderAgreement { prompts, transcripts, grader_v1, grader_v2, classifier_url, classifier_model, classifier_sha256, bootstrap, seed, out, readme } => {
+            let study = jailbreakreplay::agreement::run(&jailbreakreplay::agreement::Inputs { prompts: &prompts, transcripts: &transcripts, grader_v1: &grader_v1, grader_v2: &grader_v2, classifier_url: &classifier_url, classifier_model: &classifier_model, classifier_sha256, boot_iters: bootstrap, seed })?;
+            if let Some(d) = out.parent() { std::fs::create_dir_all(d)?; }
+            std::fs::write(&out, serde_json::to_string_pretty(&study)?)?;
+            let block = jailbreakreplay::agreement::render(&study);
+            if let Some(r) = readme {
+                let text = std::fs::read_to_string(&r)?;
+                let (s, e) = ("<!-- GRADER-AGREEMENT:START -->", "<!-- GRADER-AGREEMENT:END -->");
+                let (a, b) = (text.find(s).ok_or_else(|| anyhow::anyhow!("README lacks {s}"))?, text.find(e).ok_or_else(|| anyhow::anyhow!("README lacks {e}"))?);
+                std::fs::write(&r, format!("{}{}\n{}\n{}", &text[..a], s, block, &text[b..]))?;
+            }
+            print!("{block}");
+        }
         Cmd::Score {
             trials,
             claim,

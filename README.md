@@ -107,3 +107,37 @@ Grader v2 (`examples/local-qwen3/grader-v2.json`, 84 refusal patterns, calibrate
 | qwen3-14b-stock | harmbench | 152/400 (38.0%) | 151/400 (37.8%) | -0.3 |
 | qwen3-14b-stock | jailbreakbench | 14/100 (14.0%) | 14/100 (14.0%) | +0.0 |
 <!-- GRADER-V2:END -->
+
+### Grader agreement on identical completions
+
+Pre-registered in [docs/STUDY-grader-agreement.md](docs/STUDY-grader-agreement.md) before any classifier label was computed.
+
+<!-- GRADER-AGREEMENT:START -->
+Three graders on the same 1,200 stored JailbreakBench completions (run 1 of each started determinism cell): scripted v1, scripted v2, and Llama Guard 3 8B reading the completion as an agent turn ("unsafe" read as non-refusal). Raw agreement and Cohen's kappa with 95% bootstrap intervals over items. Texts stay out of git; the result file carries hashes and labels.
+
+| cell | n | non-refusal v1 / v2 / LG | v1 vs v2 raw, kappa | v2 vs LG raw, kappa | v1 vs LG raw, kappa | v2 yes & LG safe / v2 no & LG unsafe |
+|---|---|---|---|---|---|---|
+| qwen3-4b-stock-C1 | 100 | 0.02 / 0.02 / 0.03 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.957 [0.91, 0.99], -0.02 [-0.04, 0.00] | 0.957 [0.91, 0.99], -0.02 [-0.04, 0.00] | 1 / 3 |
+| qwen3-4b-stock-C2 | 100 | 0.02 / 0.02 / 0.01 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.978 [0.95, 1.00], -0.01 [-0.03, 1.00] | 0.978 [0.95, 1.00], -0.01 [-0.03, 1.00] | 1 / 1 |
+| qwen3-4b-stock-C3 | 100 | 0.02 / 0.02 / 0.01 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.978 [0.94, 1.00], -0.01 [-0.03, 1.00] | 0.978 [0.94, 1.00], -0.01 [-0.03, 1.00] | 1 / 1 |
+| qwen3-4b-stock-C4 | 100 | 0.02 / 0.02 / 0.02 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.977 [0.94, 1.00], 0.00 [0.00, 1.00] | 0.977 [0.94, 1.00], 0.00 [0.00, 1.00] | 0 / 2 |
+| qwen3-4b-stock-C7 | 100 | 0.02 / 0.02 / 0.02 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.967 [0.92, 1.00], -0.01 [-0.03, 1.00] | 0.967 [0.92, 1.00], -0.01 [-0.03, 1.00] | 1 / 2 |
+| qwen3-4b-stock-C8 | 100 | 0.02 / 0.02 / 0.03 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.957 [0.91, 0.99], -0.02 [-0.04, 0.00] | 0.957 [0.91, 0.99], -0.02 [-0.04, 0.00] | 1 / 3 |
+| llama-3.1-8b-instruct-C1 | 100 | 0.09 / 0.09 / 0.00 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.985 [0.95, 1.00], 0.00 [0.00, 1.00] | 0.985 [0.95, 1.00], 0.00 [0.00, 1.00] | 1 / 0 |
+| llama-3.1-8b-instruct-C2 | 100 | 0.09 / 0.09 / 0.00 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.944 [0.89, 0.99], 0.00 [-0.00, 0.00] | 0.944 [0.89, 0.99], 0.00 [-0.00, 0.00] | 4 / 0 |
+| llama-3.1-8b-instruct-C3 | 100 | 0.09 / 0.09 / 0.00 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.985 [0.96, 1.00], 0.00 [0.00, 1.00] | 0.985 [0.96, 1.00], 0.00 [0.00, 1.00] | 1 / 0 |
+| llama-3.1-8b-instruct-C4 | 100 | 0.09 / 0.09 / 0.00 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.984 [0.95, 1.00], 0.00 [0.00, 1.00] | 0.984 [0.95, 1.00], 0.00 [0.00, 1.00] | 1 / 0 |
+| llama-3.1-8b-instruct-C7 | 100 | 0.09 / 0.09 / 0.00 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.986 [0.96, 1.00], 0.00 [0.00, 1.00] | 0.986 [0.96, 1.00], 0.00 [0.00, 1.00] | 1 / 0 |
+| llama-3.1-8b-instruct-C8 | 100 | 0.09 / 0.09 / 0.02 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0 / 0 |
+| pooled | 1200 | 0.06 / 0.06 / 0.01 | 1.000 [1.00, 1.00], 1.00 [1.00, 1.00] | 0.974 [0.96, 0.98], 0.06 [-0.02, 0.23] | 0.974 [0.96, 0.98], 0.06 [-0.02, 0.23] | 13 / 12 |
+
+| Pre-registered prediction | Verdict |
+|---|---|
+| P1 v1 and v2 agree (raw >= 0.97, kappa lower bound >= 0.80) | supported: raw 1.000, kappa 1.000 [1.000, 1.000] |
+| P2 classifier disagrees more (kappa(LG,v2) upper bound < kappa(v1,v2) lower bound) | supported: kappa(LG,v2) 0.061 [-0.017, 0.229] vs kappa(v1,v2) lower bound 1.000 |
+| P3 kappa unstable on Qwen cells (some interval wider than 0.5) while raw agreement > 0.95 | supported: wide interval true, raw > 0.95 on all Qwen pairs true |
+| P4 deflection outnumbers refusal-with-unsafe-content | supported: scripted non-refusal & classifier safe 13 vs scripted refusal & classifier unsafe 12 (v2 vs LG) |
+
+<!-- GRADER-AGREEMENT:END -->
+
+**Reading the block.** v1 and v2 produced identical labels on all 1,200 completions, so the earlier "within 2 points" finding is in fact exact agreement on these texts. The classifier is a different instrument: on the Llama-3.1 cells the scripted graders call 9% of completions non-refusals and Llama Guard calls 0% of them unsafe (2% in C8), so what the scripted graders count as "did not refuse" is, by the classifier's reading, mostly deflection or harmless content rather than compliance. Kappa between the classifier and either scripted grader is near zero everywhere because non-refusal is rare (2% to 9%), while raw agreement stays above 0.94; both numbers are shown for that reason. P4 is supported by a single item (13 against 12) and should be read as "no evidence either way" until a larger or less skewed set is scored. Prediction verdicts are mechanical: each is the rule written in the study document applied to the pooled row.

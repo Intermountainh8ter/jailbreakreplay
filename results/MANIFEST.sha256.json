@@ -1,7 +1,9 @@
 {
-  "n_files": 120,
+  "n_files": 122,
   "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
   "sha256": {
+    "results/MANIFEST.sha256.json": "3d405c87be0b8841b5c259959a3796cb8b96e9a7beb137e1555a2be25fe93e79",
+    "results/grader-agreement/study-2026-10-19.json": "2e76e4321f21ee5bba698f77f0edeeff39b5bafa3465df9b4c25ece01e7e7859",
     "results/jbb-replication/DSN-llama-2-7b-chat.json": "aeb8470f7bba5c7b6aa76076a0570e6f4b737e8f30537b03259df87832455ae4",
     "results/jbb-replication/DSN-vicuna-13b-v1.5.json": "0a18535877f39549368b680a8840394870cdda50f18e2b2c2487bcaab34754e8",
     "results/jbb-replication/GCG-llama-2-7b-chat.json": "d2b12db28de8b0bcce50779eefc6478d9aa39c3238d668bc47db982513d4b20b",
@@ -124,5 +126,5 @@
     "results/local-qwen3/zephyr-7b-beta-jailbreakbench.json": "35cbcb09d5f684001b699b2d3a97c3432109c82de56c8ce4fee8dbb235f937cd"
   },
   "tool": "bench-report 0.1.0",
-  "unix_time": 1792343370
+  "unix_time": 1792434712
 }
