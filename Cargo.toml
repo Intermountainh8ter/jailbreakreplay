@@ -32,3 +32,5 @@ path = "src/main.rs"
 [lib]
 name = "jailbreakreplay"
 path = "src/lib.rs"
+
+[workspace]
