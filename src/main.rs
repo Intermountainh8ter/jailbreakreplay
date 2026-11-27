@@ -141,6 +141,19 @@ enum Cmd {
         #[arg(long)]
         readme: Option<std::path::PathBuf>,
     },
+    /// Model-free consistency study on a seeded stub target: single-shot ASR vs all-k-succeed.
+    Consistency {
+        #[arg(long, default_value_t = 100)]
+        prompts: usize,
+        #[arg(long, default_value_t = 10)]
+        k_max: usize,
+        #[arg(long, default_value_t = 2000)]
+        boot: usize,
+        #[arg(long, default_value_t = 7)]
+        seed: u64,
+        #[arg(long)]
+        out: std::path::PathBuf,
+    },
     Version,
 }
 
@@ -332,7 +345,46 @@ fn main() -> anyhow::Result<()> {
             eprintln!("wrote {} rows to {}", out_doc.rows.len(), out.display());
         }
         Cmd::CompareGraders { a, b, a_label, b_label, readme } => compare_graders(&a, &b, &a_label, &b_label, readme.as_deref())?,
+        Cmd::Consistency { prompts, k_max, boot, seed, out } => {
+            use jailbreakreplay::consistency::{prompt_probs, simulate, study, MIXTURE};
+            anyhow::ensure!(prompts > 0 && k_max > 0, "prompts and k-max must be positive");
+            let started = std::time::Instant::now();
+            let started_at = std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)?
+                .as_secs();
+            let rows = study(&simulate(&prompt_probs(prompts), k_max, seed), k_max, boot, seed);
+            let mut doc = serde_json::Map::new();
+            for (i, r) in rows.iter().enumerate() {
+                doc.insert(format!("k{}", i + 1), serde_json::to_value(r)?);
+            }
+            doc.insert("provenance".into(), serde_json::json!({
+                "started_at": started_iso(started_at),
+                "seeds": [seed],
+                "command": format!("jailbreakreplay consistency --prompts {prompts} --k-max {k_max} --boot {boot} --seed {seed}"),
+                "hardware": "cpu",
+                "wall_s": started.elapsed().as_secs_f64(),
+                "mixture": MIXTURE.iter().map(|(s, p)| serde_json::json!({"share": s, "p_success": p})).collect::<Vec<_>>(),
+                "data_sources": [{"url": "synthetic: seeded in-crate stub target, no external data", "license": "MIT (in-crate)"}],
+            }));
+            std::fs::write(&out, serde_json::to_string_pretty(&doc)?)?;
+            eprintln!("wrote {}", out.display());
+        }
         Cmd::Version => println!("jailbreakreplay {}", env!("CARGO_PKG_VERSION")),
     }
     Ok(())
+}
+
+/// UTC ISO-8601 from unix seconds (civil-from-days).
+fn started_iso(secs: u64) -> String {
+    let (days, rem) = ((secs / 86400) as i64, secs % 86400);
+    let z = days + 719468;
+    let era = z.div_euclid(146097);
+    let doe = z.rem_euclid(146097);
+    let yoe = (doe - doe / 1460 + doe / 36524 - doe / 146096) / 365;
+    let doy = doe - (365 * yoe + yoe / 4 - yoe / 100);
+    let mp = (5 * doy + 2) / 153;
+    let d = doy - (153 * mp + 2) / 5 + 1;
+    let m = if mp < 10 { mp + 3 } else { mp - 9 };
+    let y = yoe + era * 400 + if m <= 2 { 1 } else { 0 };
+    format!("{y:04}-{m:02}-{d:02}T{:02}:{:02}:{:02}Z", rem / 3600, rem % 3600 / 60, rem % 60)
 }

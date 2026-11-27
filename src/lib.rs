@@ -8,6 +8,7 @@
 //! See `docs/PREREGISTRATION.md` for the full plan.
 
 pub mod agreement;
+pub mod consistency;
 pub mod http;
 
 use rand::SeedableRng;

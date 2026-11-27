@@ -141,3 +141,9 @@ Three graders on the same 1,200 stored JailbreakBench completions (run 1 of each
 <!-- GRADER-AGREEMENT:END -->
 
 **Reading the block.** v1 and v2 produced identical labels on all 1,200 completions, so the earlier "within 2 points" finding is in fact exact agreement on these texts. The classifier is a different instrument: on the Llama-3.1 cells the scripted graders call 9% of completions non-refusals and Llama Guard calls 0% of them unsafe (2% in C8), so what the scripted graders count as "did not refuse" is, by the classifier's reading, mostly deflection or harmless content rather than compliance. Kappa between the classifier and either scripted grader is near zero everywhere because non-refusal is rare (2% to 9%), while raw agreement stays above 0.94; both numbers are shown for that reason. P4 is supported by a single item (13 against 12) and should be read as "no evidence either way" until a larger or less skewed set is scored. Prediction verdicts are mechanical: each is the rule written in the study document applied to the pooled row.
+
+## Consistency stub (synthetic)
+
+`jailbreakreplay consistency` runs a model-free stub target, not a real model: 100 prompts, 30% with per-trial success probability 0.95, 40% with 0.5, 30% with 0.0, seed 7. Single-shot ASR is the first trial per prompt; all-k-succeed is the share of prompts whose first k trials all succeed. From `results/608-consistency-stub.json`: single-shot ASR 0.46; all-10-succeed rate 0.18 (95% CI 0.11 to 0.25), a gap of 0.28; verdict against a claim equal to the single-shot ASR is NarrowedBelowClaim at k=10 and Reproduced at k=1.
+
+Reproduce: `cargo run --locked -q --release -- consistency --prompts 100 --k-max 10 --boot 2000 --seed 7 --out results/608-consistency-stub.json`

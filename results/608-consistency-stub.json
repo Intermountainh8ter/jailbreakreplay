@@ -1,0 +1,111 @@
+{
+  "k1": {
+    "all_succeed_rate": 0.46,
+    "ci_hi": 0.56,
+    "ci_lo": 0.36,
+    "gap": 0.0,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "Reproduced"
+  },
+  "k10": {
+    "all_succeed_rate": 0.18,
+    "ci_hi": 0.25,
+    "ci_lo": 0.11,
+    "gap": 0.28,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k2": {
+    "all_succeed_rate": 0.31,
+    "ci_hi": 0.4,
+    "ci_lo": 0.22,
+    "gap": 0.15000000000000002,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k3": {
+    "all_succeed_rate": 0.27,
+    "ci_hi": 0.36,
+    "ci_lo": 0.19,
+    "gap": 0.19,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k4": {
+    "all_succeed_rate": 0.22,
+    "ci_hi": 0.3,
+    "ci_lo": 0.14,
+    "gap": 0.24000000000000002,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k5": {
+    "all_succeed_rate": 0.2,
+    "ci_hi": 0.27,
+    "ci_lo": 0.13,
+    "gap": 0.26,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k6": {
+    "all_succeed_rate": 0.19,
+    "ci_hi": 0.26,
+    "ci_lo": 0.12,
+    "gap": 0.27,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k7": {
+    "all_succeed_rate": 0.18,
+    "ci_hi": 0.25,
+    "ci_lo": 0.11,
+    "gap": 0.28,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k8": {
+    "all_succeed_rate": 0.18,
+    "ci_hi": 0.25,
+    "ci_lo": 0.11,
+    "gap": 0.28,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "k9": {
+    "all_succeed_rate": 0.18,
+    "ci_hi": 0.25,
+    "ci_lo": 0.11,
+    "gap": 0.28,
+    "single_shot_asr": 0.46,
+    "verdict_vs_single_shot": "NarrowedBelowClaim"
+  },
+  "provenance": {
+    "command": "jailbreakreplay consistency --prompts 100 --k-max 10 --boot 2000 --seed 7",
+    "data_sources": [
+      {
+        "license": "MIT (in-crate)",
+        "url": "synthetic: seeded in-crate stub target, no external data"
+      }
+    ],
+    "hardware": "cpu",
+    "mixture": [
+      {
+        "p_success": 0.95,
+        "share": 0.3
+      },
+      {
+        "p_success": 0.5,
+        "share": 0.4
+      },
+      {
+        "p_success": 0.0,
+        "share": 0.3
+      }
+    ],
+    "seeds": [
+      7
+    ],
+    "started_at": "2026-11-27T04:29:35Z",
+    "wall_s": 0.017143892
+  }
+}
