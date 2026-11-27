@@ -147,3 +147,7 @@ Three graders on the same 1,200 stored JailbreakBench completions (run 1 of each
 `jailbreakreplay consistency` runs a model-free stub target, not a real model: 100 prompts, 30% with per-trial success probability 0.95, 40% with 0.5, 30% with 0.0, seed 7. Single-shot ASR is the first trial per prompt; all-k-succeed is the share of prompts whose first k trials all succeed. From `results/608-consistency-stub.json`: single-shot ASR 0.46; all-10-succeed rate 0.18 (95% CI 0.11 to 0.25), a gap of 0.28; verdict against a claim equal to the single-shot ASR is NarrowedBelowClaim at k=10 and Reproduced at k=1.
 
 Reproduce: `cargo run --locked -q --release -- consistency --prompts 100 --k-max 10 --boot 2000 --seed 7 --out results/608-consistency-stub.json`
+
+## Constant-judge floor
+
+`jailbreakreplay constant-judge` re-scores the stored JailbreakBench replication cells under judges that never read the response (always-harmful, never-harmful, seeded coin). On the 10 cells, 2 have a paper claim inside a floor judge's 95% CI (1 once the underpowered cell is dropped), against 2 reproduced by the substring grader; see `results/646-constant-judge.json`.

@@ -17,3 +17,19 @@ Scope: synthetic, model-free stub target; it says nothing about any real
 model. Single-shot ASR is the first trial per prompt; all-k-succeed is the
 fraction of prompts whose first k trials all succeed. Seed 7, 2000 bootstrap
 iterations over prompts.
+
+## 2026-11-27T10:51:47Z constant-judge proposal:bfac15e5c7726d5b01e50e4a7ce07560096ba5f6662575be00961d30a4618650
+
+Hypothesis: across the 10 stored JailbreakBench replication cells, at most 3
+and at least 1 have a paper-claimed ASR inside the bootstrap 95% CI of at
+least one of an always-harmful, a never-harmful or a seeded coin-flip
+(p=0.5) judge. The never-harmful judge is expected to match the claim of 0.0
+for JailbreakChat on llama-2-7b-chat.
+
+Metric: `/summary/cells_reproduced_by_floor_judge` in
+`results/646-constant-judge.json`. Expected: 1 to 3 cells of 10.
+
+Falsifier: zero cells reproduced by any floor judge, or more than 3 of 10.
+
+Scope: model-free; judges never read a response; it says nothing about any
+real model. Seed 7, 2000 bootstrap iterations over prompts, n_prompts as stored.

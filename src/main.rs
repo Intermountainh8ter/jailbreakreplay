@@ -23,6 +23,17 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Cmd {
+    /// Floor study: re-score stored replication cells under judges that never read the response.
+    ConstantJudge {
+        #[arg(long)]
+        verdicts: std::path::PathBuf,
+        #[arg(long, default_value_t = 2000)]
+        boot: usize,
+        #[arg(long, default_value_t = 7)]
+        seed: u64,
+        #[arg(long)]
+        out: std::path::PathBuf,
+    },
     /// Grader-agreement study (docs/STUDY-grader-agreement.md): v1, v2 and a Llama Guard classifier on the same stored completions.
     GraderAgreement {
         #[arg(long)]
@@ -219,6 +230,30 @@ fn compare_graders(a: &std::path::Path, b: &std::path::Path, a_label: &str, b_la
 fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
     match cli.command {
+        Cmd::ConstantJudge { verdicts, boot, seed, out } => {
+            let started = std::time::Instant::now();
+            let started_at = chrono_free_utc();
+            let stored: jailbreakreplay::constant_judge::Stored = serde_json::from_str(&std::fs::read_to_string(&verdicts)?)?;
+            let (rows, summary) = jailbreakreplay::constant_judge::run_cells(&stored.cells, boot, seed);
+            let doc = serde_json::json!({
+                "summary": summary,
+                "cells": rows,
+                "provenance": {
+                    "started_at": started_at,
+                    "seeds": [seed],
+                    "command": format!("jailbreakreplay constant-judge --verdicts {} --boot {boot} --seed {seed} --out {}", verdicts.display(), out.display()),
+                    "hardware": "cpu only, model-free",
+                    "wall_s": started.elapsed().as_secs_f64(),
+                    "data_sources": [
+                        {"url": "https://github.com/JailbreakBench/artifacts", "license": "MIT"},
+                        {"url": "results/local-qwen3/jbb-replication-verdicts.json", "license": "MIT (in-crate)"}
+                    ]
+                }
+            });
+            if let Some(d) = out.parent() { std::fs::create_dir_all(d)?; }
+            std::fs::write(&out, serde_json::to_string_pretty(&doc)?)?;
+            println!("{}", serde_json::to_string(&doc["summary"])?);
+        }
         Cmd::GraderAgreement { prompts, transcripts, grader_v1, grader_v2, classifier_url, classifier_model, classifier_sha256, bootstrap, seed, out, readme } => {
             let study = jailbreakreplay::agreement::run(&jailbreakreplay::agreement::Inputs { prompts: &prompts, transcripts: &transcripts, grader_v1: &grader_v1, grader_v2: &grader_v2, classifier_url: &classifier_url, classifier_model: &classifier_model, classifier_sha256, boot_iters: bootstrap, seed })?;
             if let Some(d) = out.parent() { std::fs::create_dir_all(d)?; }
@@ -386,5 +421,22 @@ fn started_iso(secs: u64) -> String {
     let d = doy - (153 * mp + 2) / 5 + 1;
     let m = if mp < 10 { mp + 3 } else { mp - 9 };
     let y = yoe + era * 400 + if m <= 2 { 1 } else { 0 };
+    format!("{y:04}-{m:02}-{d:02}T{:02}:{:02}:{:02}Z", rem / 3600, rem % 3600 / 60, rem % 60)
+}
+
+/// UTC ISO timestamp from the system clock without a new dependency.
+fn chrono_free_utc() -> String {
+    let secs = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_secs()).unwrap_or(0) as i64;
+    let (days, rem) = (secs.div_euclid(86400), secs.rem_euclid(86400));
+    let z = days + 719468;
+    let era = z.div_euclid(146097);
+    let doe = z.rem_euclid(146097);
+    let yoe = (doe - doe / 1460 + doe / 36524 - doe / 146096) / 365;
+    let y = yoe + era * 400;
+    let doy = doe - (365 * yoe + yoe / 4 - yoe / 100);
+    let mp = (5 * doy + 2) / 153;
+    let d = doy - (153 * mp + 2) / 5 + 1;
+    let m = if mp < 10 { mp + 3 } else { mp - 9 };
+    let y = if m <= 2 { y + 1 } else { y };
     format!("{y:04}-{m:02}-{d:02}T{:02}:{:02}:{:02}Z", rem / 3600, rem % 3600 / 60, rem % 60)
 }

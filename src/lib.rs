@@ -9,6 +9,7 @@
 
 pub mod agreement;
 pub mod consistency;
+pub mod constant_judge;
 pub mod http;
 
 use rand::SeedableRng;
