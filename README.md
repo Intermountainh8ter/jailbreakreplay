@@ -151,3 +151,7 @@ Reproduce: `cargo run --locked -q --release -- consistency --prompts 100 --k-max
 ## Constant-judge floor
 
 `jailbreakreplay constant-judge` re-scores the stored JailbreakBench replication cells under judges that never read the response (always-harmful, never-harmful, seeded coin). On the 10 cells, 2 have a paper claim inside a floor judge's 95% CI (1 once the underpowered cell is dropped), against 2 reproduced by the substring grader; see `results/646-constant-judge.json`.
+
+## Heterogeneity study (synthetic, model-free)
+
+`jailbreakreplay heterogeneity` holds mean per-trial success at 0.5 and draws 1000 per-prompt probabilities from Beta(c/2, c/2), 10 trials each. From `results/784-heterogeneity.json`: single-shot ASR stays within 0.021 of 0.5 at every concentration, while the all-10-succeed rate falls from 0.298 at c=0.5 to 0.002 at c=100, a spread of 0.296. It says nothing about any real model.

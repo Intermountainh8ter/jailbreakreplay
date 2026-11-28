@@ -23,6 +23,17 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Cmd {
+    /// Model-free heterogeneity study: all-10-succeed rate versus Beta concentration at fixed mean ASR 0.5.
+    Heterogeneity {
+        #[arg(long, default_value_t = 1000)]
+        prompts: usize,
+        #[arg(long, default_value_t = 2000)]
+        boot: usize,
+        #[arg(long, default_value_t = 7)]
+        seed: u64,
+        #[arg(long)]
+        out: std::path::PathBuf,
+    },
     /// Floor study: re-score stored replication cells under judges that never read the response.
     ConstantJudge {
         #[arg(long)]
@@ -400,6 +411,36 @@ fn main() -> anyhow::Result<()> {
                 "wall_s": started.elapsed().as_secs_f64(),
                 "mixture": MIXTURE.iter().map(|(s, p)| serde_json::json!({"share": s, "p_success": p})).collect::<Vec<_>>(),
                 "data_sources": [{"url": "synthetic: seeded in-crate stub target, no external data", "license": "MIT (in-crate)"}],
+            }));
+            std::fs::write(&out, serde_json::to_string_pretty(&doc)?)?;
+            eprintln!("wrote {}", out.display());
+        }
+        Cmd::Heterogeneity { prompts, boot, seed, out } => {
+            use jailbreakreplay::heterogeneity::{study, CONCENTRATIONS, K};
+            anyhow::ensure!(prompts > 0, "prompts must be positive");
+            let started = std::time::Instant::now();
+            let started_at = std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)?
+                .as_secs();
+            let rows = study(prompts, boot, seed);
+            let k10: Vec<f64> = rows.iter().map(|r| r.all10_rate).collect();
+            let max = k10.iter().cloned().fold(f64::MIN, f64::max);
+            let min = k10.iter().cloned().fold(f64::MAX, f64::min);
+            let dev = rows.iter().map(|r| (r.single_shot_asr - 0.5).abs()).fold(0.0, f64::max);
+            let mut doc = serde_json::Map::new();
+            doc.insert("rows".into(), serde_json::to_value(&rows)?);
+            doc.insert("k10_spread".into(), serde_json::json!({
+                "max": max, "min": min, "max_minus_min": max - min,
+                "max_single_shot_deviation_from_half": dev,
+            }));
+            doc.insert("provenance".into(), serde_json::json!({
+                "started_at": started_iso(started_at),
+                "seeds": [seed],
+                "command": format!("jailbreakreplay heterogeneity --seed {seed} --prompts {prompts} --boot {boot}"),
+                "hardware": "cpu",
+                "wall_s": started.elapsed().as_secs_f64(),
+                "concentrations": CONCENTRATIONS, "trials_per_prompt": K,
+                "data_sources": [{"url": "synthetic: seeded in-crate Beta(c/2,c/2) stub target, no external data", "license": "MIT (in-crate)"}],
             }));
             std::fs::write(&out, serde_json::to_string_pretty(&doc)?)?;
             eprintln!("wrote {}", out.display());

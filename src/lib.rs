@@ -9,6 +9,7 @@
 
 pub mod agreement;
 pub mod consistency;
+pub mod heterogeneity;
 pub mod constant_judge;
 pub mod http;
 

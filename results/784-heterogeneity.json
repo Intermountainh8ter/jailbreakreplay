@@ -1,0 +1,83 @@
+{
+  "k10_spread": {
+    "max": 0.298,
+    "max_minus_min": 0.296,
+    "max_single_shot_deviation_from_half": 0.02100000000000002,
+    "min": 0.002
+  },
+  "provenance": {
+    "command": "jailbreakreplay heterogeneity --seed 7 --prompts 1000 --boot 2000",
+    "concentrations": [
+      0.5,
+      1.0,
+      2.0,
+      10.0,
+      100.0
+    ],
+    "data_sources": [
+      {
+        "license": "MIT (in-crate)",
+        "url": "synthetic: seeded in-crate Beta(c/2,c/2) stub target, no external data"
+      }
+    ],
+    "hardware": "cpu",
+    "seeds": [
+      7
+    ],
+    "started_at": "2026-11-28T02:34:13Z",
+    "trials_per_prompt": 10,
+    "wall_s": 0.162510083
+  },
+  "rows": [
+    {
+      "all10_ci_hi": 0.327,
+      "all10_ci_lo": 0.27,
+      "all10_rate": 0.298,
+      "concentration": 0.5,
+      "gap": 0.22300000000000003,
+      "single_shot_asr": 0.521,
+      "single_shot_ci_hi": 0.552,
+      "single_shot_ci_lo": 0.491
+    },
+    {
+      "all10_ci_hi": 0.184,
+      "all10_ci_lo": 0.138,
+      "all10_rate": 0.16,
+      "concentration": 1.0,
+      "gap": 0.345,
+      "single_shot_asr": 0.505,
+      "single_shot_ci_hi": 0.536,
+      "single_shot_ci_lo": 0.475
+    },
+    {
+      "all10_ci_hi": 0.11,
+      "all10_ci_lo": 0.075,
+      "all10_rate": 0.092,
+      "concentration": 2.0,
+      "gap": 0.41100000000000003,
+      "single_shot_asr": 0.503,
+      "single_shot_ci_hi": 0.534,
+      "single_shot_ci_lo": 0.473
+    },
+    {
+      "all10_ci_hi": 0.014,
+      "all10_ci_lo": 0.003,
+      "all10_rate": 0.008,
+      "concentration": 10.0,
+      "gap": 0.487,
+      "single_shot_asr": 0.495,
+      "single_shot_ci_hi": 0.527,
+      "single_shot_ci_lo": 0.465
+    },
+    {
+      "all10_ci_hi": 0.005,
+      "all10_ci_lo": 0.0,
+      "all10_rate": 0.002,
+      "concentration": 100.0,
+      "gap": 0.495,
+      "single_shot_asr": 0.497,
+      "single_shot_ci_hi": 0.529,
+      "single_shot_ci_lo": 0.464
+    }
+  ]
+}

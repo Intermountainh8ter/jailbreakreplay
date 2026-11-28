@@ -33,3 +33,21 @@ Falsifier: zero cells reproduced by any floor judge, or more than 3 of 10.
 
 Scope: model-free; judges never read a response; it says nothing about any
 real model. Seed 7, 2000 bootstrap iterations over prompts, n_prompts as stored.
+
+## 2026-11-28T02:34:05Z heterogeneity proposal:abdf90dbdcab7930444fa08350e9a1ab4d334057461479b5691acc5417194a44
+
+Hypothesis: with 1000 synthetic prompts whose per-trial success probabilities
+are Beta(c/2, c/2) (mean 0.5), single-shot ASR stays within 0.05 of 0.5 for
+every concentration c in {0.5, 1, 2, 10, 100}, while the all-10-succeed rate
+ranges over at least 0.20 between c=0.5 and c=100, so the k=1 to k=10 gap is
+set by per-prompt heterogeneity, not by mean ASR.
+
+Metric: `/k10_spread/max_minus_min` in `results/784-heterogeneity.json`.
+Expected: increases to about 0.27, range 0.20 to 0.35.
+
+Falsifier: a spread in all-10-succeed rate below 0.20 across the
+concentrations, or single-shot ASR deviating more than 0.05 from 0.5 at any
+concentration.
+
+Scope: synthetic, model-free; it says nothing about any real model. Seed 7,
+2000 bootstrap iterations over prompts, 10 trials per prompt.
