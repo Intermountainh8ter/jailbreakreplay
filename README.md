@@ -155,3 +155,15 @@ Reproduce: `cargo run --locked -q --release -- consistency --prompts 100 --k-max
 ## Heterogeneity study (synthetic, model-free)
 
 `jailbreakreplay heterogeneity` holds mean per-trial success at 0.5 and draws 1000 per-prompt probabilities from Beta(c/2, c/2), 10 trials each. From `results/784-heterogeneity.json`: single-shot ASR stays within 0.021 of 0.5 at every concentration, while the all-10-succeed rate falls from 0.298 at c=0.5 to 0.002 at c=100, a spread of 0.296. It says nothing about any real model.
+
+## Serving-noise power (cache-noise, synthetic)
+
+Model-free: two serving arms over 100 prompts at a baseline non-refusal rate of 0.5, each prompt's outcome flipping between arms with a stated probability, paired exact sign test at alpha 0.05, 2000 replications per grid point, seed 7. The flip probability 0.388 is a published cache-enabled divergence rate used only as a parameter; this says nothing about any real model or about llama.cpp. Source: `results/804-cache-noise.json`.
+
+| flip probability | smallest detectable true difference at 80% power |
+|---|---|
+| 0.05 | 0.08 |
+| 0.2 | 0.13 |
+| 0.388 | 0.19 |
+
+Reproduce: `cargo run --locked -q --release -- cache-noise --seed 7 --prompts 100 --reps 2000 --out results/804-cache-noise.json`

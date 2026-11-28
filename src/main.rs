@@ -23,6 +23,17 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Cmd {
+    /// Model-free serving-noise power study: smallest detectable non-refusal difference between two arms per flip rate.
+    CacheNoise {
+        #[arg(long, default_value_t = 100)]
+        prompts: usize,
+        #[arg(long, default_value_t = 2000)]
+        reps: usize,
+        #[arg(long, default_value_t = 7)]
+        seed: u64,
+        #[arg(long)]
+        out: std::path::PathBuf,
+    },
     /// Model-free heterogeneity study: all-10-succeed rate versus Beta concentration at fixed mean ASR 0.5.
     Heterogeneity {
         #[arg(long, default_value_t = 1000)]
@@ -441,6 +452,34 @@ fn main() -> anyhow::Result<()> {
                 "wall_s": started.elapsed().as_secs_f64(),
                 "concentrations": CONCENTRATIONS, "trials_per_prompt": K,
                 "data_sources": [{"url": "synthetic: seeded in-crate Beta(c/2,c/2) stub target, no external data", "license": "MIT (in-crate)"}],
+            }));
+            std::fs::write(&out, serde_json::to_string_pretty(&doc)?)?;
+            eprintln!("wrote {}", out.display());
+        }
+        Cmd::CacheNoise { prompts, reps, seed, out } => {
+            use jailbreakreplay::cache_noise::{study, ALPHA, BASE_RATE, FLIP_RATES, POWER_TARGET};
+            anyhow::ensure!(prompts > 0 && reps > 0, "prompts and reps must be positive");
+            let started = std::time::Instant::now();
+            let started_at = std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)?
+                .as_secs();
+            let rows = study(prompts, reps, seed);
+            let at = |f: f64| rows.iter().find(|r| r.flip_probability == f).and_then(|r| r.min_detectable_difference);
+            let mut doc = serde_json::Map::new();
+            doc.insert("rows".into(), serde_json::to_value(&rows)?);
+            doc.insert("summary".into(), serde_json::json!({
+                "min_detectable_refusal_difference": at(0.388),
+                "min_detectable_difference_at_flip_0_05": at(0.05),
+                "min_detectable_difference_at_flip_0": at(0.0),
+            }));
+            doc.insert("provenance".into(), serde_json::json!({
+                "started_at": started_iso(started_at),
+                "seeds": [seed],
+                "command": format!("jailbreakreplay cache-noise --seed {seed} --prompts {prompts} --reps {reps}"),
+                "hardware": "cpu",
+                "wall_s": started.elapsed().as_secs_f64(),
+                "flip_rates": FLIP_RATES, "alpha": ALPHA, "power_target": POWER_TARGET, "base_rate": BASE_RATE,
+                "data_sources": [{"url": "synthetic: seeded in-crate two-arm flip simulation, no external data", "license": "MIT (in-crate)"}],
             }));
             std::fs::write(&out, serde_json::to_string_pretty(&doc)?)?;
             eprintln!("wrote {}", out.display());

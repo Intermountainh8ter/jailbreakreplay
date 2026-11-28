@@ -1,0 +1,64 @@
+{
+  "provenance": {
+    "alpha": 0.05,
+    "base_rate": 0.5,
+    "command": "jailbreakreplay cache-noise --seed 7 --prompts 100 --reps 2000",
+    "data_sources": [
+      {
+        "license": "MIT (in-crate)",
+        "url": "synthetic: seeded in-crate two-arm flip simulation, no external data"
+      }
+    ],
+    "flip_rates": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.388
+    ],
+    "hardware": "cpu",
+    "power_target": 0.8,
+    "seeds": [
+      7
+    ],
+    "started_at": "2026-11-28T03:57:43Z",
+    "wall_s": 0.117589194
+  },
+  "rows": [
+    {
+      "flip_probability": 0.0,
+      "min_detectable_difference": 0.08,
+      "power_at_min": 0.8255,
+      "size_at_zero": 0.0
+    },
+    {
+      "flip_probability": 0.05,
+      "min_detectable_difference": 0.08,
+      "power_at_min": 0.8075,
+      "size_at_zero": 0.006
+    },
+    {
+      "flip_probability": 0.1,
+      "min_detectable_difference": 0.09,
+      "power_at_min": 0.8255,
+      "size_at_zero": 0.021
+    },
+    {
+      "flip_probability": 0.2,
+      "min_detectable_difference": 0.13,
+      "power_at_min": 0.816,
+      "size_at_zero": 0.033
+    },
+    {
+      "flip_probability": 0.388,
+      "min_detectable_difference": 0.19,
+      "power_at_min": 0.8575,
+      "size_at_zero": 0.0315
+    }
+  ],
+  "summary": {
+    "min_detectable_difference_at_flip_0": 0.08,
+    "min_detectable_difference_at_flip_0_05": 0.08,
+    "min_detectable_refusal_difference": 0.19
+  }
+}

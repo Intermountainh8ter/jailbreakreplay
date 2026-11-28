@@ -51,3 +51,23 @@ concentration.
 
 Scope: synthetic, model-free; it says nothing about any real model. Seed 7,
 2000 bootstrap iterations over prompts, 10 trials per prompt.
+
+## 2026-11-28T03:57:29Z cache-noise proposal:a8401b41e8702f7185bf528b668b89780ed979e42b9535dabe0afea0f531584d
+
+Hypothesis: with 100 prompts at baseline non-refusal rate 0.5 and a per-prompt
+symmetric flip probability of 0.388 between two serving arms (a published
+cache-enabled divergence rate, used here only as a parameter), a paired exact
+sign (McNemar-style) test at alpha 0.05 needs a true non-refusal difference of
+at least 0.13 to reach 80% power, and at flip probability 0.05 the requirement
+is at most 0.08.
+
+Metric: `/summary/min_detectable_refusal_difference` in
+`results/804-cache-noise.json` (flip 0.388, 80% power, 100 prompts).
+Expected: about 0.17, range 0.13 to 0.22.
+
+Falsifier: a minimum detectable difference below 0.13 at flip probability
+0.388, or above 0.08 at flip probability 0.05.
+
+Scope: synthetic, model-free; it says nothing about any real model or about
+llama.cpp. Seed 7, 100 prompts, 2000 replications per grid point, difference
+grid 0.00 to 0.50 in steps of 0.01 (first grid point reaching 80% power).

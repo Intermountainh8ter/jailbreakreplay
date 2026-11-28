@@ -10,6 +10,7 @@
 pub mod agreement;
 pub mod consistency;
 pub mod heterogeneity;
+pub mod cache_noise;
 pub mod constant_judge;
 pub mod http;
 
